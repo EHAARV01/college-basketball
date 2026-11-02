@@ -5,6 +5,7 @@ author: Ethan Aarvig
 category: Predictions
 summary: Final Four picks, conference forecasts, and the teams to watch.
 published: true
+image: /college-basketball/assets/uploads/2026-27-season-preview-final-four-forecast.png
 ---
 Welcome to the pilot of my college basketball blog! I am very excited to keep you guys updated with my rankings, predictions, and opinions throughout the season, as well as any news and notes from around the basketball world. The basketball season officially tips off in Rome with the battle of the Catholics, Notre Dame vs Villanova, on Sunday at 9:00 am. The offseason was as chaotic as ever this summer with the continued rise of transfers, coaching changes, and the formation of the newly reimagined Pac-12. This is my official season preview as we try to keep track of it all!
 
