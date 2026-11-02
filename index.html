@@ -31,6 +31,8 @@ layout: default
 </section>
 <div class="wrap bottom">
   <section class="panel" id="rankings"><div class="eyebrow" style="color:var(--red);margin-bottom:8px">{{ home.rankings_eyebrow | escape }}</div><h2>{{ home.rankings_heading | escape }}</h2><p class="intro">{{ home.rankings_intro | escape }}</p><div class="prose">{{ home.rankings_body | markdownify }}</div><p class="note">{{ home.rankings_note | escape }}</p>
+  {% assign ap_articles = published_articles | where: 'category', 'AP Top 25' %}{% assign latest_ap = ap_articles | first %}
+  {% if latest_ap %}<p><span class="label">Associated Press poll</span><br><a class="rankings-link" href="{{ latest_ap.url | relative_url }}">{{ latest_ap.title | escape }} →</a></p>{% endif %}
   {% assign ranking_articles = published_articles | where: 'category', 'Rankings' %}{% assign latest_ranking = ranking_articles | first %}
   {% if latest_ranking %}<p><a class="rankings-link" href="{{ latest_ranking.url | relative_url }}">{{ latest_ranking.title | escape }} →</a></p>{% else %}<a class="btn" href="#predictions" style="margin-top:20px">{{ home.hero_button | escape }} &nbsp;→</a>{% endif %}<p><a class="rankings-link" href="{{ '/rankings/' | relative_url }}">Browse all ranking weeks →</a></p></section>
   <section class="panel"><div class="eyebrow" style="color:var(--red);margin-bottom:8px">{{ home.coverage_eyebrow | escape }}</div><h2>{{ home.coverage_heading | escape }}</h2><p class="intro">{{ home.coverage_intro | escape }}</p><ul class="bullets">{% for point in home.coverage_points %}<li><strong>{{ point.heading | escape }}:</strong> {{ point.description | escape }}</li>{% endfor %}</ul></section>

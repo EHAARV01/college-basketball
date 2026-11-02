@@ -1,13 +1,28 @@
 ---
 layout: default
 title: Top 25 Rankings Archive
-summary: Browse every published edition of my college basketball Top 25, with each week's rankings and commentary preserved.
+summary: The AP Top 25 and my independent college basketball rankings, with past editions available to browse.
 ---
 {% assign ranking_editions = site.articles | where: 'published', true | where: 'category', 'Rankings' | sort: 'date' | reverse %}
 <section class="wrap archive rankings-archive">
   <div class="eyebrow" style="color:var(--red)">{{ site.data.publication.season | escape }} season</div>
-  <h1 class="archive-title">My Top 25</h1>
-  <p class="archive-intro">A new edition each week. Every published week stays here, so you can revisit the rankings and the reasoning behind them.</p>
+  <h1 class="archive-title">Top 25 Rankings</h1>
+  <p class="archive-intro">Follow the AP poll now and my independent rankings beginning in December. Browse past editions of each below.</p>
+  <div class="category-links"><a href="#ap-polls">AP Top 25</a><a href="#my-rankings">My Top 25</a></div>
+  <section class="category-section" id="ap-polls" aria-labelledby="ap-polls-heading">
+    <h2 id="ap-polls-heading">AP Top 25</h2>
+    <p class="archive-intro">Rankings by The Associated Press. Each edition is dated and linked to its source.</p>
+    {% assign ap_editions = site.articles | where: 'published', true | where: 'category', 'AP Top 25' | sort: 'date' | reverse %}
+    {% if ap_editions.size > 0 %}
+      {% assign latest_ap = ap_editions | first %}
+      <div class="ranking-latest"><div class="label">Latest AP poll posted here</div><h3><a href="{{ latest_ap.url | relative_url }}">{{ latest_ap.title | escape }}</a></h3><p class="article-meta">Released <time datetime="{{ latest_ap.date | date: '%Y-%m-%d' }}">{{ latest_ap.date | date: '%B %-d, %Y' }}</time></p><p>{{ latest_ap.summary | escape }}</p><a class="btn" href="{{ latest_ap.url | relative_url }}">View AP Top 25 →</a></div>
+      <h3>AP poll archive</h3>
+      <ol class="ranking-editions">{% for edition in ap_editions %}<li><a href="{{ edition.url | relative_url }}"><span><strong>{{ edition.title | escape }}</strong></span><span class="ranking-date"><time datetime="{{ edition.date | date: '%Y-%m-%d' }}">{{ edition.date | date: '%b %-d, %Y' }}</time>{% if forloop.first %}<span class="ranking-current">Latest posted</span>{% endif %}</span></a></li>{% endfor %}</ol>
+    {% else %}<p class="empty-state">No AP polls have been posted yet.</p>{% endif %}
+  </section>
+  <section class="category-section" id="my-rankings" aria-labelledby="my-rankings-heading">
+  <h2 id="my-rankings-heading">My Top 25</h2>
+  <p class="archive-intro">My own rankings and commentary. Every published week stays available in the archive.</p>
   {% if ranking_editions.size > 0 %}
     {% assign latest = ranking_editions | first %}
     <section class="ranking-latest" aria-labelledby="latest-ranking-heading">
@@ -26,4 +41,5 @@ summary: Browse every published edition of my college basketball Top 25, with ea
   {% else %}
     <div class="empty-state"><h2>First Top 25 coming in December</h2><p>I'm watching teams play before publishing my first rankings. Once they begin, every week's edition will be available here.</p><a class="rankings-link" href="{{ '/articles/' | relative_url }}">Read my latest stories →</a></div>
   {% endif %}
+  </section>
 </section>

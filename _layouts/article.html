@@ -4,17 +4,17 @@ layout: default
 <article class="article-wrap">
   <div class="label">{{ page.category | escape }}</div>
   <h1>{{ page.title | escape }}</h1>
-  <div class="article-meta">By {{ page.author | default: site.data.publication.author | escape }} · <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %-d, %Y' }}</time></div>
+  <div class="article-meta">{% if page.category == 'AP Top 25' %}Poll: The Associated Press · Released {% else %}By {{ page.author | default: site.data.publication.author | escape }} · {% endif %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %-d, %Y' }}</time></div>
   {% if page.summary and page.summary != '' %}<p class="article-deck">{{ page.summary | escape }}</p>{% endif %}
   {% if page.image and page.image != '' %}<figure class="article-image"><img src="{{ page.image | escape }}" alt="{{ page.image_alt | default: '' | escape }}">{% if page.image_caption and page.image_caption != '' %}<figcaption>{{ page.image_caption | escape }}</figcaption>{% endif %}</figure>{% endif %}
   <div class="article-body">{{ content }}</div>
-  {% if page.category == 'Rankings' %}
-  {% assign ranking_editions = site.articles | where: 'published', true | where: 'category', 'Rankings' | sort: 'date' | reverse %}
+  {% if page.category == 'Rankings' or page.category == 'AP Top 25' %}
+  {% assign ranking_editions = site.articles | where: 'published', true | where: 'category', page.category | sort: 'date' | reverse %}
   <nav class="ranking-edition-nav" aria-label="Rankings archive navigation">
     {% for edition in ranking_editions %}
       {% if edition.url == page.url %}
         {% unless forloop.last %}{% assign older_index = forloop.index0 | plus: 1 %}{% assign older = ranking_editions[older_index] %}<a href="{{ older.url | relative_url }}">← Older: {{ older.title | escape }}</a>{% endunless %}
-        <a href="{{ '/rankings/' | relative_url }}">All ranking weeks</a>
+        <a href="{{ '/rankings/' | relative_url }}{% if page.category == 'AP Top 25' %}#ap-polls{% else %}#my-rankings{% endif %}">{% if page.category == 'AP Top 25' %}All AP polls{% else %}All my ranking weeks{% endif %}</a>
         {% unless forloop.first %}{% assign newer_index = forloop.index0 | minus: 1 %}{% assign newer = ranking_editions[newer_index] %}<a href="{{ newer.url | relative_url }}">Newer: {{ newer.title | escape }} →</a>{% endunless %}
       {% endif %}
     {% endfor %}
