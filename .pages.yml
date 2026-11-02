@@ -26,6 +26,18 @@ content:
   - name: hero_note
     label: Hero note
     type: string
+  - name: hero_image
+    label: Homepage photo
+    type: image
+  - name: hero_image_alt
+    label: Homepage photo description
+    type: string
+  - name: hero_image_caption
+    label: Homepage photo caption
+    type: string
+  - name: hero_image_credit
+    label: Homepage photo credit
+    type: string
   - name: poster_caption
     label: Poster caption
     type: string
