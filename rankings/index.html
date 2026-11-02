@@ -1,0 +1,29 @@
+---
+layout: default
+title: Top 25 Rankings Archive
+summary: Browse every published edition of my college basketball Top 25, with each week's rankings and commentary preserved.
+---
+{% assign ranking_editions = site.articles | where: 'published', true | where: 'category', 'Rankings' | sort: 'date' | reverse %}
+<section class="wrap archive rankings-archive">
+  <div class="eyebrow" style="color:var(--red)">{{ site.data.publication.season | escape }} season</div>
+  <h1 class="archive-title">My Top 25</h1>
+  <p class="archive-intro">A new edition each week. Every published week stays here, so you can revisit the rankings and the reasoning behind them.</p>
+  {% if ranking_editions.size > 0 %}
+    {% assign latest = ranking_editions | first %}
+    <section class="ranking-latest" aria-labelledby="latest-ranking-heading">
+      <div class="label">Latest rankings</div>
+      <h2 id="latest-ranking-heading"><a href="{{ latest.url | relative_url }}">{{ latest.title | escape }}</a></h2>
+      <p class="article-meta"><time datetime="{{ latest.date | date: '%Y-%m-%d' }}">{{ latest.date | date: '%B %-d, %Y' }}</time></p>
+      <p>{{ latest.summary | escape }}</p>
+      <a class="btn" href="{{ latest.url | relative_url }}">Read the rankings →</a>
+    </section>
+    <h2 class="rankings-history-heading">Browse every week</h2>
+    <ol class="ranking-editions">
+      {% for edition in ranking_editions %}
+      <li><a href="{{ edition.url | relative_url }}"><span><strong>{{ edition.title | escape }}</strong><span class="ranking-summary">{{ edition.summary | escape }}</span></span><span class="ranking-date"><time datetime="{{ edition.date | date: '%Y-%m-%d' }}">{{ edition.date | date: '%b %-d, %Y' }}</time>{% if forloop.first %}<span class="ranking-current">Latest</span>{% endif %}</span></a></li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <div class="empty-state"><h2>First Top 25 coming in December</h2><p>I'm watching teams play before publishing my first rankings. Once they begin, every week's edition will be available here.</p><a class="rankings-link" href="{{ '/articles/' | relative_url }}">Read my latest stories →</a></div>
+  {% endif %}
+</section>
