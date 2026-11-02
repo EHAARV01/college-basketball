@@ -5,6 +5,7 @@ author: Ethan Aarvig
 category: Game Analysis
 summary: "Reactions, thoughts, and analysis of the first game of the year.  "
 published: true
+image: /college-basketball/assets/uploads/embroidered-rivalry-beneath-a-roman-sunset.png
 ---
 ```
 Notre Dame 74 - 72 Villanova
