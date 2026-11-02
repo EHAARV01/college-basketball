@@ -1,0 +1,279 @@
+media:
+  input: assets/uploads
+  output: /college-basketball/assets/uploads
+  rename: safe
+  categories:
+  - image
+content:
+- name: homepage
+  label: Homepage
+  type: file
+  path: _data/homepage.yml
+  format: yaml
+  fields:
+  - name: hero_eyebrow
+    label: Hero eyebrow
+    type: string
+  - name: hero_title
+    label: Hero title
+    type: text
+  - name: hero_description
+    label: Hero description
+    type: text
+  - name: hero_button
+    label: Hero button
+    type: string
+  - name: hero_note
+    label: Hero note
+    type: string
+  - name: poster_caption
+    label: Poster caption
+    type: string
+  - name: latest_heading
+    label: Latest heading
+    type: string
+  - name: latest_label
+    label: Latest label
+    type: string
+  - name: archive_label
+    label: Archive label
+    type: string
+  - name: teasers
+    label: Story previews
+    type: object
+    list:
+      min: 3
+      max: 3
+      collapsible:
+        collapsed: true
+        summary: '{label}'
+    fields:
+    - name: category
+      label: Article category
+      type: select
+      required: true
+      options:
+        values:
+        - Predictions
+        - Game Analysis
+        - Features & Opinion
+      readonly: true
+    - name: anchor
+      label: Section anchor
+      type: string
+      hidden: true
+    - name: label
+      label: Category label
+      type: string
+    - name: title
+      label: Preview headline
+      type: string
+    - name: description
+      label: Preview description
+      type: text
+    - name: status
+      label: Coming soon wording
+      type: string
+  - name: rankings_eyebrow
+    label: Rankings eyebrow
+    type: string
+  - name: rankings_heading
+    label: Rankings heading
+    type: string
+  - name: rankings_intro
+    label: Rankings intro
+    type: text
+  - name: rankings_body
+    label: Rankings body
+    type: rich-text
+    options:
+      format: markdown
+      switcher: false
+  - name: rankings_note
+    label: Rankings note
+    type: text
+  - name: coverage_eyebrow
+    label: Coverage eyebrow
+    type: string
+  - name: coverage_heading
+    label: Coverage heading
+    type: string
+  - name: coverage_intro
+    label: Coverage intro
+    type: text
+  - name: coverage_points
+    label: 'What to expect: points'
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{heading}'
+    fields:
+    - name: heading
+      label: Heading
+      type: string
+    - name: description
+      label: Description
+      type: text
+  - name: about_heading
+    label: About heading
+    type: string
+  - name: about_body
+    label: About body
+    type: rich-text
+    options:
+      format: markdown
+      switcher: false
+  - name: about_note
+    label: About note
+    type: text
+  - name: articles_heading
+    label: Articles heading
+    type: string
+  - name: articles_intro
+    label: Articles intro
+    type: text
+  - name: empty_articles_message
+    label: Empty articles message
+    type: text
+- name: publication
+  label: Publication settings
+  type: file
+  path: _data/publication.yml
+  format: yaml
+  fields:
+  - name: name
+    label: Publication name
+    type: string
+    required: true
+  - name: logo_letter
+    label: Logo letter
+    type: string
+    options:
+      maxlength: 1
+  - name: tagline
+    label: Tagline
+    type: string
+  - name: season
+    label: Season
+    type: string
+  - name: strapline
+    label: Top banner wording
+    type: string
+  - name: edition_label
+    label: Edition label
+    type: string
+  - name: author
+    label: Default author
+    type: string
+  - name: description
+    label: Search description
+    type: text
+  - name: nav
+    label: Navigation labels
+    type: object
+    fields:
+    - name: home
+      label: Home
+      type: string
+    - name: latest
+      label: Latest
+      type: string
+    - name: predictions
+      label: Predictions
+      type: string
+    - name: rankings
+      label: Rankings
+      type: string
+    - name: analysis
+      label: Analysis
+      type: string
+    - name: about
+      label: About
+      type: string
+  - name: footer_description
+    label: Footer description
+    type: string
+  - name: editor_label
+    label: Editor link wording
+    type: string
+- name: articles
+  label: Articles
+  type: collection
+  path: _articles
+  format: yaml-frontmatter
+  filename:
+    template: '{primary}.md'
+    field: create
+  subfolders: false
+  view:
+    fields:
+    - title
+    - category
+    - published
+    - date
+    primary: title
+    sort:
+    - date
+    - title
+    search:
+    - title
+    - category
+    - summary
+    default:
+      sort: date
+      order: desc
+  fields:
+  - name: title
+    label: Headline
+    type: string
+    required: true
+  - name: date
+    label: Publication date
+    type: date
+    required: true
+    options:
+      format: yyyy-MM-dd
+    description: Date shown to readers. This does not schedule publication.
+  - name: author
+    label: Author
+    type: string
+    default: Ethan Aarvig
+  - name: category
+    label: Category
+    type: select
+    required: true
+    default: Predictions
+    options:
+      values:
+      - Predictions
+      - Game Analysis
+      - Features & Opinion
+      - Rankings
+  - name: summary
+    label: Short introduction
+    type: text
+    required: true
+    description: Shown on the homepage, article cards, and above the article.
+  - name: published
+    label: Published
+    type: boolean
+    default: false
+    description: Turn on and save to show this article on the website. Turn off to remove it from the
+      website. The GitHub repository itself is public.
+  - name: image
+    label: Cover image
+    type: image
+  - name: image_alt
+    label: Image description
+    type: string
+  - name: image_caption
+    label: Image caption and credit
+    type: string
+  - name: body
+    label: Article
+    type: rich-text
+    required: true
+    options:
+      format: markdown
+      switcher: false
