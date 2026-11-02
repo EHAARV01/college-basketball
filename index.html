@@ -8,7 +8,11 @@ layout: default
     <div><div class="eyebrow">{{ home.hero_eyebrow | escape }}</div><h1 id="main-title">{{ home.hero_title | escape | newline_to_br }}</h1><p>{{ home.hero_description | escape }}</p></div>
     <div class="featurefoot"><a class="btn" href="#predictions">{{ home.hero_button | escape }} &nbsp;→</a><span class="herofoot">{{ home.hero_note | upcase | escape }}</span></div>
   </section>
+{% if home.hero_image and home.hero_image != '' %}
+<figure class="hero-photo"><img src="{{ home.hero_image | escape }}" alt="{{ home.hero_image_alt | default: '' | escape }}" fetchpriority="high"><figcaption>{{ home.hero_image_caption | escape }}{% if home.hero_image_credit and home.hero_image_credit != '' %}<span>{{ home.hero_image_credit | escape }}</span>{% endif %}</figcaption></figure>
+{% else %}
 <div class="poster" role="img" aria-label="Stylized basketball graphic over a basketball court"><div class="court"></div><div class="ball" aria-hidden="true"><span class="seam a"></span><span class="seam b"></span><span class="seam c"></span><span class="seam d"></span></div><span class="season">{{ site.data.publication.season | escape }}</span><span class="posterlabel">{{ home.poster_caption | escape }}</span></div>
+{% endif %}
 </div>
 <section class="wrap section" id="latest">
   <div class="sectionhead"><h2>{{ home.latest_heading | escape }}</h2><span>{{ home.latest_label | escape }}</span><a href="{{ '/articles/' | relative_url }}">{{ home.archive_label | escape }} →</a></div>
