@@ -13,8 +13,6 @@ Notre Dame 74 - 72 Villanova
 
 The college basketball season got off to a great start in Rome! Notre Dame battled Villanova in the first-ever Eternal City Tip-Off in the lone game of the day. I loved having an international game to start off the season and I hope to see this continued in the future. The game itself was a thriller, Notre Dame squeaked out a come from behind victory 74-72. 
 
-![image.png](/college-basketball/assets/uploads/image-2.png)
-
 ### Villanova Reactions
 
 Villanova had high expectations coming into Kevin Willard's second season, however, opening night did not go as planned. The Wildcats got off to a rocky start dropping their first game of the year. The story of the night was the abundance of turnovers, a problem that reared its head in their exhibition loss against Virginia. Notre Dame forced a concerning 20 more today, 15 of them coming in the first half. Villanova at times gave up open jumpers off pick-and-roll actions when Luigi Suigo was in the game and Devin Royal shockingly did not make a field goal. On the bright side, Tyler Perkins looks like he has taken another step forwards from last year and Kwame Evans Jr. flashed his immense potential on the defensive end. This team will improve as they find their identity and get more comfortable playing in a system together. Later this week, Villanova plays Holy Cross on Friday in a get-right game in their home opener. 
