@@ -29,7 +29,7 @@ layout: default
 {% when 'features' %}<div class="storyart three"><svg aria-hidden="true" viewBox="0 0 150 95" width="150" height="95" fill="none" stroke="#e8e4f0" stroke-width="2.5"><path d="M20 76 H130 M32 76 V49 H58 V76 M65 76 V28 H91 V76 M98 76 V12 H124 V76"/></svg></div>
 {% endcase %}
 <div class="storyinner"><div class="label">{{ teaser.label | escape }}</div><h3>{{ teaser.title | escape }}</h3><p>{{ teaser.description | escape }}</p><span class="storytag">{{ teaser.status | escape }}</span></div></article>
-{% endif %}</div>
+{% endif %}{% if teaser.category == 'Game Analysis' %}<a class="analysis-browse" href="{{ '/analysis/' | relative_url }}">Browse all game analysis →</a>{% endif %}</div>
 {% endfor %}
   </div>
 </section>

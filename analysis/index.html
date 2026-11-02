@@ -1,0 +1,29 @@
+---
+layout: default
+title: Game Analysis
+summary: Browse game recaps and analysis by matchup or publication week.
+---
+{% assign recaps = site.articles | where: 'published', true | where: 'category', 'Game Analysis' | sort: 'date' | reverse %}
+<section class="wrap archive">
+  <div class="label">The film room</div>
+  <h1 class="archive-title">Game Analysis</h1>
+  <p class="archive-intro">Reactions, turning points, and takeaways. Find a matchup or revisit an earlier week.</p>
+  {% if recaps.size > 0 %}
+  <form class="analysis-filters" id="analysis-filters" hidden role="search">
+    <div><label for="recap-search">Find a game or team</label><input id="recap-search" type="search" placeholder="e.g. Notre Dame or Villanova" autocomplete="off"></div>
+    <div><label for="recap-week">Publication week (Monday–Sunday)</label><select id="recap-week"><option value="">All weeks</option></select></div>
+    <button type="reset">Clear filters</button>
+  </form>
+  <p id="recap-count" role="status" aria-live="polite">{{ recaps.size }} published recap{% unless recaps.size == 1 %}s{% endunless %} · Newest first</p>
+  <div class="archive-grid" id="recap-grid">
+    {% for article in recaps %}
+    <div class="recap-entry" data-date="{{ article.date | date: '%Y-%m-%d' }}" data-search="{{ article.title | append: ' ' | append: article.summary | escape }}">
+      {% include article-card.html article=article %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="empty-state" id="recap-empty" hidden>No recaps match those filters. Try another team or choose All weeks.</div>
+  <noscript><p>All recaps are listed newest first. Enable JavaScript to search and filter by week.</p></noscript>
+  <script src="{{ '/assets/analysis.js' | relative_url }}" defer></script>
+  {% else %}<div class="empty-state">The first game analysis is on its way. Check back after tip-off.</div>{% endif %}
+</section>

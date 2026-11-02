@@ -20,5 +20,17 @@ layout: default
     {% endfor %}
   </nav>
   {% endif %}
+  {% if page.category == 'Game Analysis' %}
+  {% assign analysis_articles = site.articles | where: 'published', true | where: 'category', 'Game Analysis' | sort: 'date' | reverse %}
+  <nav class="ranking-edition-nav" aria-label="Game analysis navigation">
+    {% for recap in analysis_articles %}
+      {% if recap.url == page.url %}
+        {% unless forloop.last %}{% assign older_index = forloop.index0 | plus: 1 %}{% assign older = analysis_articles[older_index] %}<a href="{{ older.url | relative_url }}">← Older recap: {{ older.title | escape }}</a>{% endunless %}
+        <a href="{{ '/analysis/' | relative_url }}">All game analysis</a>
+        {% unless forloop.first %}{% assign newer_index = forloop.index0 | minus: 1 %}{% assign newer = analysis_articles[newer_index] %}<a href="{{ newer.url | relative_url }}">Newer recap: {{ newer.title | escape }} →</a>{% endunless %}
+      {% endif %}
+    {% endfor %}
+  </nav>
+  {% endif %}
   <a class="article-back" href="{{ '/articles/' | relative_url }}">← All articles</a>
 </article>
