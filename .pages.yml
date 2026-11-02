@@ -250,6 +250,7 @@ content:
       - Game Analysis
       - Features & Opinion
       - Rankings
+      - AP Top 25
   - name: summary
     label: Short introduction
     type: text
