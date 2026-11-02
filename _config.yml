@@ -1,0 +1,26 @@
+url: https://ehaarv01.github.io
+baseurl: /college-basketball
+timezone: America/New_York
+markdown: kramdown
+kramdown:
+  input: GFM
+future: true
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name/
+defaults:
+- scope:
+    path: ''
+    type: articles
+  values:
+    layout: article
+    published: false
+exclude:
+- README.md
+- START-HERE.txt
+- index (1).html
+- Gemfile
+- Gemfile.lock
+- vendor
+- node_modules

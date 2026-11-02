@@ -1,0 +1,11 @@
+---
+layout: default
+title: Articles
+---
+{% assign home = site.data.homepage %}
+{% assign published_articles = site.articles | where: 'published', true | sort: 'date' | reverse %}
+<section class="wrap archive">
+  <h1 class="archive-title">{{ home.articles_heading | escape }}</h1><p class="archive-intro">{{ home.articles_intro | escape }}</p>
+  {% if published_articles.size > 0 %}<div class="archive-grid">{% for article in published_articles %}{% include article-card.html article=article %}{% endfor %}</div>
+  {% else %}<div class="empty-state">{{ home.empty_articles_message | escape }}</div>{% endif %}
+</section>

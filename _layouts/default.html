@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% assign publication = site.data.publication %}
+  <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ publication.name | escape }}</title>
+  <meta name="description" content="{{ page.summary | default: publication.description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{{ page.title | default: publication.name | escape }}">
+  <meta property="og:description" content="{{ page.summary | default: publication.description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:site_name" content="{{ publication.name | escape }}">
+  <meta property="og:type" content="{% if page.layout == 'article' %}article{% else %}website{% endif %}">
+  {% if page.image and page.image != '' %}<meta property="og:image" content="{{ page.image | prepend: site.url }}">{% endif %}
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="micro"><div class="wrap"><span><span class="dot"></span>{{ publication.strapline | escape }}</span><span class="right">The {{ publication.season | escape }} season</span></div></div>
+  <header id="top">
+    <div class="wrap head">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ publication.name | escape }} homepage">
+        <span class="brandmark" aria-hidden="true"><span>{{ publication.logo_letter | upcase | escape }}</span></span>
+        <span><span class="brandtitle">{{ publication.name | escape }}</span><span class="brandsub" style="display:block">{{ publication.tagline | upcase | escape }}</span></span>
+      </a>
+      <span class="edition">{{ publication.edition_label | escape }}<br>{{ publication.season | escape }} edition</span>
+    </div>
+    <nav class="nav" aria-label="Main navigation"><div class="wrap navin">
+      <a href="{{ '/' | relative_url }}">{{ publication.nav.home | escape }}</a>
+      <a href="{{ '/articles/' | relative_url }}">{{ publication.nav.latest | escape }}</a>
+      <a href="{{ '/' | relative_url }}#predictions">{{ publication.nav.predictions | escape }}</a>
+      <a href="{{ '/' | relative_url }}#rankings">{{ publication.nav.rankings | escape }}</a>
+      <a href="{{ '/' | relative_url }}#analysis">{{ publication.nav.analysis | escape }}</a>
+      <a href="{{ '/' | relative_url }}#about">{{ publication.nav.about | escape }}</a>
+    </div></nav>
+  </header>
+  <main id="main-content">{{ content }}</main>
+  <footer class="footer"><div class="wrap foot"><strong>{{ publication.name | escape }}</strong><span>{{ publication.footer_description | escape }} · {{ publication.season | escape }}</span><a href="{{ '/admin/' | relative_url }}">{{ publication.editor_label | escape }}</a><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>
