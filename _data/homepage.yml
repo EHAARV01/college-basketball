@@ -1,66 +1,16 @@
-hero_eyebrow: The preseason outlook
-hero_title: 'College hoops.
-
-  Every angle.
-
-  Every story.'
-hero_description: Preseason predictions, original commentary, and thoughtful game analysis for the 2026–27
-  season. My first Top 25 arrives in December, after a month of watching teams play.
-hero_button: Explore predictions
-hero_note: Top 25 · Coming in December
-poster_caption: A new season. A new perspective.
+hero_eyebrow: From the Court
+hero_button: Read the story
 latest_heading: Latest from the Court
-latest_label: Preseason desk
 archive_label: View all articles
-teasers:
-- category: Predictions
-  anchor: predictions
-  label: Preseason Predictions
-  title: My Predictions for the 2026–27 Season
-  description: Final Four picks, conference forecasts, and the teams to watch. The preseason outlook starts
-    here.
-  status: First article coming soon
-- category: Game Analysis
-  anchor: analysis
-  label: Game Analysis
-  title: The Matchups That Matter
-  description: Game previews and postgame breakdowns focused on what decides the outcome.
-  status: First article coming soon
-- category: Features & Opinion
-  anchor: features
-  label: Features & Opinion
-  title: Beyond the Box Score
-  description: Longer-form stories about the teams, coaches, rivalries, and moments that shape the sport.
-  status: First article coming soon
-rankings_eyebrow: Coming in December
-rankings_heading: My Top 25
-rankings_intro: My first Top 25 arrives in December, after a month of watching teams prove themselves.
-rankings_body: November is for watching, taking notes, and seeing how teams come together. Then the rankings
-  begin, with the reasoning behind each pick and the teams moving up or down.
-rankings_note: 'Until then: preseason predictions, game analysis, and early-season observations.'
-coverage_eyebrow: What to expect
-coverage_heading: More Than Final Scores
-coverage_intro: A place for independent opinion and substantive basketball discussion.
-coverage_points:
-- heading: Preseason predictions
-  description: Final Four picks, conference forecasts, and teams to watch.
-- heading: Rankings from December
-  description: An independent Top 25 informed by watching teams play.
-- heading: Game breakdowns
-  description: Key adjustments, defining moments, and what the result means.
-- heading: National coverage
-  description: Major conferences, emerging programs, and compelling storylines.
-- heading: Data when it helps
-  description: Context from tempo, efficiency, and other statistics.
+rankings_heading: Top 25
+rankings_intro: My independent Top 25 begins in December, after a month of watching teams play.
 about_heading: About the Report.
-about_body: The Full Court Report is an independent college basketball publication built around original
-  writing, informed opinions, and a love for the sport. From the opening tip in November to the final
-  buzzer in April, the aim is to cover what makes college basketball worth following.
+about_body: I'm Ethan Aarvig, a lifelong college basketball fan. The Full Court Report is where I share
+  my reactions, game breakdowns, and opinions throughout the season—from opening night to March Madness.
 about_note: ''
 articles_heading: All Articles
 articles_intro: Predictions, game analysis, features, and independent rankings.
 empty_articles_message: The first stories are on the way. Check back soon.
-
 hero_image: /college-basketball/assets/uploads/mullins-duke-reaction.png
 hero_image_alt: Braylon Mullins in UConn number 24 raises both arms after his late shot against Duke.
 hero_image_caption: The moments that make March.

@@ -2,43 +2,38 @@
 layout: default
 ---
 {% assign home = site.data.homepage %}
-{% assign published_articles = site.articles | where: "published", true | sort: "date" | reverse %}
-<div class="wrap hero">
-  <section class="feature" aria-labelledby="main-title">
-    <div><div class="eyebrow">{{ home.hero_eyebrow | escape }}</div><h1 id="main-title">{{ home.hero_title | escape | newline_to_br }}</h1><p>{{ home.hero_description | escape }}</p></div>
-    <div class="featurefoot"><a class="btn" href="#predictions">{{ home.hero_button | escape }} &nbsp;→</a><span class="herofoot">{{ home.hero_note | upcase | escape }}</span></div>
-  </section>
-{% if home.hero_image and home.hero_image != '' %}
-<figure class="hero-photo"><img src="{{ home.hero_image | escape }}" alt="{{ home.hero_image_alt | default: '' | escape }}" fetchpriority="high"><figcaption>{{ home.hero_image_caption | escape }}{% if home.hero_image_credit and home.hero_image_credit != '' %}<span>{{ home.hero_image_credit | escape }}</span>{% endif %}</figcaption></figure>
-{% else %}
-<div class="poster" role="img" aria-label="Stylized basketball graphic over a basketball court"><div class="court"></div><div class="ball" aria-hidden="true"><span class="seam a"></span><span class="seam b"></span><span class="seam c"></span><span class="seam d"></span></div><span class="season">{{ site.data.publication.season | escape }}</span><span class="posterlabel">{{ home.poster_caption | escape }}</span></div>
-{% endif %}
-</div>
-<section class="wrap section" id="latest">
-  <div class="sectionhead"><h2>{{ home.latest_heading | escape }}</h2><span>{{ home.latest_label | escape }}</span><a href="{{ '/articles/' | relative_url }}">{{ home.archive_label | escape }} →</a></div>
-  <div class="stories">
-{% for teaser in home.teasers %}
-<div id="{{ teaser.anchor | escape }}">
-{% assign category_articles = published_articles | where: 'category', teaser.category %}
-{% assign newest = category_articles | first %}
-{% if newest %}{% include article-card.html article=newest %}{% else %}
-<article class="story">
-{% case teaser.anchor %}
-{% when 'predictions' %}<div class="storyart one"><svg aria-hidden="true" viewBox="0 0 160 95" width="160" height="95" fill="none" stroke="#d6e6f2" stroke-width="2"><path d="M20 75 H140 V18 H20 Z M80 18 V75"/><circle cx="80" cy="47" r="21"/><path d="M20 34 H41 V59 H20 M140 34 H119 V59 H140"/></svg></div>
-{% when 'analysis' %}<div class="storyart two"><svg aria-hidden="true" viewBox="0 0 130 110" width="130" height="110" fill="none" stroke="#ffe1cb" stroke-width="2.4"><circle cx="65" cy="55" r="40"/><path d="M25 55 H105 M65 15 V95 M35 29 C67 46 67 65 35 81 M95 29 C63 46 63 65 95 81"/></svg></div>
-{% when 'features' %}<div class="storyart three"><svg aria-hidden="true" viewBox="0 0 150 95" width="150" height="95" fill="none" stroke="#e8e4f0" stroke-width="2.5"><path d="M20 76 H130 M32 76 V49 H58 V76 M65 76 V28 H91 V76 M98 76 V12 H124 V76"/></svg></div>
-{% endcase %}
-<div class="storyinner"><div class="label">{{ teaser.label | escape }}</div><h3>{{ teaser.title | escape }}</h3><p>{{ teaser.description | escape }}</p><span class="storytag">{{ teaser.status | escape }}</span></div></article>
-{% endif %}{% if teaser.category == 'Game Analysis' %}<a class="analysis-browse" href="{{ '/analysis/' | relative_url }}">Browse all game analysis →</a>{% endif %}</div>
-{% endfor %}
+{% assign published_articles = site.articles | where: 'published', true | sort: 'date' | reverse %}
+{% assign featured = nil %}
+{% for article in published_articles %}{% unless article.category == 'AP Top 25' %}{% assign featured = article %}{% break %}{% endunless %}{% endfor %}
+{% unless featured %}{% assign featured = published_articles | first %}{% endunless %}
+{% if featured %}
+<section class="wrap lead-story" aria-labelledby="main-title">
+  <div class="lead-copy">
+    <div class="eyebrow">{{ home.hero_eyebrow | escape }} · {{ featured.category | escape }}</div>
+    <h1 id="main-title"><a href="{{ featured.url | relative_url }}">{{ featured.title | escape }}</a></h1>
+    <p class="lead-summary">{{ featured.summary | escape }}</p>
+    <p class="lead-meta"><time datetime="{{ featured.date | date: '%Y-%m-%d' }}">{{ featured.date | date: '%B %-d, %Y' }}</time> · {{ featured.author | default: site.data.publication.author | escape }}</p>
+    <a class="btn" href="{{ featured.url | relative_url }}">{{ home.hero_button | escape }} →</a>
   </div>
+  {% if featured.image and featured.image != '' %}
+  <figure class="lead-visual"><a href="{{ featured.url | relative_url }}"><img src="{{ featured.image | escape }}" alt="{{ featured.image_alt | default: featured.title | escape }}" fetchpriority="high"></a>{% if featured.image_caption and featured.image_caption != '' %}<figcaption>{{ featured.image_caption | escape }}</figcaption>{% endif %}</figure>
+  {% elsif home.hero_image and home.hero_image != '' %}
+  <figure class="lead-visual"><img src="{{ home.hero_image | escape }}" alt="{{ home.hero_image_alt | default: '' | escape }}" fetchpriority="high"><figcaption>{{ home.hero_image_caption | escape }}{% if home.hero_image_credit and home.hero_image_credit != '' %}<span>{{ home.hero_image_credit | escape }}</span>{% endif %}</figcaption></figure>
+  {% endif %}
 </section>
-<div class="wrap bottom">
-  <section class="panel" id="rankings"><div class="eyebrow" style="color:var(--red);margin-bottom:8px">{{ home.rankings_eyebrow | escape }}</div><h2>{{ home.rankings_heading | escape }}</h2><p class="intro">{{ home.rankings_intro | escape }}</p><div class="prose">{{ home.rankings_body | markdownify }}</div><p class="note">{{ home.rankings_note | escape }}</p>
-  {% assign ap_articles = published_articles | where: 'category', 'AP Top 25' %}{% assign latest_ap = ap_articles | first %}
-  {% if latest_ap %}<p><span class="label">Associated Press poll</span><br><a class="rankings-link" href="{{ latest_ap.url | relative_url }}">{{ latest_ap.title | escape }} →</a></p>{% endif %}
-  {% assign ranking_articles = published_articles | where: 'category', 'Rankings' %}{% assign latest_ranking = ranking_articles | first %}
-  {% if latest_ranking %}<p><a class="rankings-link" href="{{ latest_ranking.url | relative_url }}">{{ latest_ranking.title | escape }} →</a></p>{% else %}<a class="btn" href="#predictions" style="margin-top:20px">{{ home.hero_button | escape }} &nbsp;→</a>{% endif %}<p><a class="rankings-link" href="{{ '/rankings/' | relative_url }}">Browse all ranking weeks →</a></p></section>
-  <section class="panel"><div class="eyebrow" style="color:var(--red);margin-bottom:8px">{{ home.coverage_eyebrow | escape }}</div><h2>{{ home.coverage_heading | escape }}</h2><p class="intro">{{ home.coverage_intro | escape }}</p><ul class="bullets">{% for point in home.coverage_points %}<li><strong>{{ point.heading | escape }}:</strong> {{ point.description | escape }}</li>{% endfor %}</ul></section>
-</div>
+{% endif %}
+<section class="wrap section" id="latest">
+  <div class="sectionhead"><h2>{{ home.latest_heading | escape }}</h2><a href="{{ '/articles/' | relative_url }}">{{ home.archive_label | escape }} →</a></div>
+  {% if published_articles.size > 0 %}<div class="archive-grid latest-grid">{% for article in published_articles limit: 6 %}{% include article-card.html article=article %}{% endfor %}</div>
+  {% else %}<p class="empty-state">{{ home.empty_articles_message | escape }}</p>{% endif %}
+  <a class="analysis-browse" href="{{ '/analysis/' | relative_url }}">Find a game recap by matchup or week →</a>
+</section>
+{% assign ap_articles = published_articles | where: 'category', 'AP Top 25' %}{% assign latest_ap = ap_articles | first %}
+{% assign ranking_articles = published_articles | where: 'category', 'Rankings' %}{% assign latest_ranking = ranking_articles | first %}
+<section class="wrap rankings-strip" id="rankings" aria-labelledby="rankings-title">
+  <div><div class="label">The rankings desk</div><h2 id="rankings-title">{{ home.rankings_heading | escape }}</h2>
+  {% if latest_ranking %}<p><a href="{{ latest_ranking.url | relative_url }}">{{ latest_ranking.title | escape }} →</a></p>{% else %}<p>{{ home.rankings_intro | escape }}</p>{% endif %}
+  {% if latest_ap %}<p class="poll-link"><a href="{{ latest_ap.url | relative_url }}">Latest AP poll posted here: {{ latest_ap.title | escape }} →</a></p>{% endif %}</div>
+  <a class="btn" href="{{ '/rankings/' | relative_url }}">Browse rankings →</a>
+</section>
 <section class="about" id="about"><div class="wrap aboutgrid"><h2>{{ home.about_heading | escape }}</h2><div class="prose">{{ home.about_body | markdownify }}{% if home.about_note and home.about_note != '' %}<p class="small">{{ home.about_note | escape }}</p>{% endif %}</div></div></section>
