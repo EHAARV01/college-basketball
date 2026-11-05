@@ -8,6 +8,14 @@ layout: default
   {% if page.summary and page.summary != '' %}<p class="article-deck">{{ page.summary | escape }}</p>{% endif %}
   {% if page.image and page.image != '' %}<figure class="article-image"><img src="{{ page.image | escape }}" alt="{{ page.image_alt | default: '' | escape }}">{% if page.image_caption and page.image_caption != '' %}<figcaption>{{ page.image_caption | escape }}</figcaption>{% endif %}</figure>{% endif %}
   <div class="article-body">{{ content }}</div>
+  {% for game in page.games %}
+    {% if game.team_a and game.team_b and game.score_a != nil and game.score_b != nil %}
+    <section class="game-breakdown" aria-label="{{ game.team_a | escape }} versus {{ game.team_b | escape }}">
+      {% include score-banner.html game=game %}
+      {% if game.analysis and game.analysis != '' %}<div class="article-body">{{ game.analysis | markdownify }}</div>{% endif %}
+    </section>
+    {% endif %}
+  {% endfor %}
   {% if page.category == 'Rankings' or page.category == 'AP Top 25' %}
   {% assign ranking_editions = site.articles | where: 'published', true | where: 'category', page.category | sort: 'date' | reverse %}
   <nav class="ranking-edition-nav" aria-label="Rankings archive navigation">

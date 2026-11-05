@@ -1,0 +1,15 @@
+{% assign game = include.game %}
+<div class="score-banner">
+  <div class="score-banner-label">{{ game.status | default: 'Final' | escape }}{% if game.note and game.note != '' %}<span>{{ game.note | escape }}</span>{% endif %}</div>
+  <div class="score-banner-matchup">
+    <div class="score-team score-team-a{% if game.score_a > game.score_b %} score-winner{% endif %}">
+      <div class="score-identity"><span class="score-emblem score-color-{{ game.color_a | default: 'Navy' | slugify }}">{% if game.logo_a and game.logo_a != '' %}<img src="{{ game.logo_a | escape }}" alt="">{% else %}{{ game.team_a | slice: 0, 1 | upcase | escape }}{% endif %}</span><strong>{{ game.team_a | escape }}</strong></div>
+      <span class="score-number">{{ game.score_a | escape }}</span>
+    </div>
+    <span class="score-divider" aria-hidden="true">–</span>
+    <div class="score-team score-team-b{% if game.score_b > game.score_a %} score-winner{% endif %}">
+      <span class="score-number">{{ game.score_b | escape }}</span>
+      <div class="score-identity"><span class="score-emblem score-color-{{ game.color_b | default: 'Navy' | slugify }}">{% if game.logo_b and game.logo_b != '' %}<img src="{{ game.logo_b | escape }}" alt="">{% else %}{{ game.team_b | slice: 0, 1 | upcase | escape }}{% endif %}</span><strong>{{ game.team_b | escape }}</strong></div>
+    </div>
+  </div>
+</div>
