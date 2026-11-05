@@ -15,9 +15,7 @@ layout: default
     <p class="lead-meta"><time datetime="{{ featured.date | date: '%Y-%m-%d' }}">{{ featured.date | date: '%B %-d, %Y' }}</time> · {{ featured.author | default: site.data.publication.author | escape }}</p>
     <a class="btn" href="{{ featured.url | relative_url }}">{{ home.hero_button | escape }} →</a>
   </div>
-  {% if featured.image and featured.image != '' %}
-  <figure class="lead-visual"><a href="{{ featured.url | relative_url }}"><img src="{{ featured.image | escape }}" alt="{{ featured.image_alt | default: featured.title | escape }}" fetchpriority="high"></a>{% if featured.image_caption and featured.image_caption != '' %}<figcaption>{{ featured.image_caption | escape }}</figcaption>{% endif %}</figure>
-  {% elsif home.hero_image and home.hero_image != '' %}
+  {% if home.hero_image and home.hero_image != '' %}
   <figure class="lead-visual"><img src="{{ home.hero_image | escape }}" alt="{{ home.hero_image_alt | default: '' | escape }}" fetchpriority="high"><figcaption>{{ home.hero_image_caption | escape }}{% if home.hero_image_credit and home.hero_image_credit != '' %}<span>{{ home.hero_image_credit | escape }}</span>{% endif %}</figcaption></figure>
   {% endif %}
 </section>
