@@ -1,93 +1,116 @@
 ---
 title: AP Top 25 — 2026–27 Preseason Poll
-date: '2026-10-19'
+date: 2026-10-19
 author: Ethan Aarvig
 category: AP Top 25
-summary: The Associated Press men's preseason Top 25, released October 19, 2026. Florida leads the poll,
-  followed by Duke and Illinois.
+summary: The Associated Press men's preseason Top 25, released October 19, 2026.
+  Florida leads the poll, followed by Duke and Illinois.
 published: true
-image: ''
-image_alt: ''
-image_caption: ''
+image: /college-basketball/assets/uploads/screenshot-2026-11-05-025918.png
 ranking_label: Preseason
 ranking_source: Texas Athletics — full AP poll
 ranking_source_url: https://texaslonghorns.com/news/2026/10/19/mens-basketball-mens-basketball-ranked-no-7-in-ap-preseason-poll
 ranking_rows:
-- team: Florida
-  points: 1461
-  first_place_votes: 47
-- team: Duke
-  points: 1411
-  first_place_votes: 10
-- team: Illinois
-  points: 1342
-  first_place_votes: 2
-- team: UConn
-  points: 1241
-  first_place_votes: 0
-- team: Arizona
-  points: 1214
-  first_place_votes: 0
-- team: Michigan State
-  points: 1203
-  first_place_votes: 0
-- team: Texas
-  points: 1040
-  first_place_votes: 0
-- team: Tennessee
-  points: 932
-  first_place_votes: 0
-- team: Virginia
-  points: 874
-  first_place_votes: 0
-- team: Houston
-  points: 829
-  first_place_votes: 0
-- team: Louisville
-  points: 822
-  first_place_votes: 0
-- team: Arkansas
-  points: 760
-  first_place_votes: 0
-- team: St. John's
-  points: 669
-  first_place_votes: 0
-- team: Miami (FL)
-  points: 650
-  first_place_votes: 0
-- team: Gonzaga
-  points: 637
-  first_place_votes: 0
-- team: Michigan
-  points: 605
-  first_place_votes: 0
-- team: Kansas
-  points: 504
-  first_place_votes: 0
-- team: Iowa State
-  points: 475
-  first_place_votes: 0
-- team: Texas Tech
-  points: 466
-  first_place_votes: 0
-- team: Alabama
-  points: 374
-  first_place_votes: 0
-- team: USC
-  points: 306
-  first_place_votes: 0
-- team: UCLA
-  points: 250
-  first_place_votes: 0
-- team: Kentucky
-  points: 243
-  first_place_votes: 0
-- team: Vanderbilt
-  points: 241
-  first_place_votes: 0
-- team: BYU
-  points: 179
-  first_place_votes: 0
+  - team: Florida
+    new_entry: false
+    points: 1461
+    first_place_votes: 47
+  - team: Duke
+    new_entry: false
+    points: 1411
+    first_place_votes: 10
+  - team: Illinois
+    new_entry: false
+    points: 1342
+    first_place_votes: 2
+  - team: UConn
+    new_entry: false
+    points: 1241
+    first_place_votes: 0
+  - team: Arizona
+    new_entry: false
+    points: 1214
+    first_place_votes: 0
+  - team: Michigan State
+    new_entry: false
+    points: 1203
+    first_place_votes: 0
+  - team: Texas
+    new_entry: false
+    points: 1040
+    first_place_votes: 0
+  - team: Tennessee
+    new_entry: false
+    points: 932
+    first_place_votes: 0
+  - team: Virginia
+    new_entry: false
+    points: 874
+    first_place_votes: 0
+  - team: Houston
+    new_entry: false
+    points: 829
+    first_place_votes: 0
+  - team: Louisville
+    new_entry: false
+    points: 822
+    first_place_votes: 0
+  - team: Arkansas
+    new_entry: false
+    points: 760
+    first_place_votes: 0
+  - team: St. John's
+    new_entry: false
+    points: 669
+    first_place_votes: 0
+  - team: Miami (FL)
+    new_entry: false
+    points: 650
+    first_place_votes: 0
+  - team: Gonzaga
+    new_entry: false
+    points: 637
+    first_place_votes: 0
+  - team: Michigan
+    new_entry: false
+    points: 605
+    first_place_votes: 0
+  - team: Kansas
+    new_entry: false
+    points: 504
+    first_place_votes: 0
+  - team: Iowa State
+    new_entry: false
+    points: 475
+    first_place_votes: 0
+  - team: Texas Tech
+    new_entry: false
+    points: 466
+    first_place_votes: 0
+  - team: Alabama
+    new_entry: false
+    points: 374
+    first_place_votes: 0
+  - team: USC
+    new_entry: false
+    points: 306
+    first_place_votes: 0
+  - team: UCLA
+    new_entry: false
+    points: 250
+    first_place_votes: 0
+  - team: Kentucky
+    new_entry: false
+    points: 243
+    first_place_votes: 0
+  - team: Vanderbilt
+    new_entry: false
+    points: 241
+    first_place_votes: 0
+  - team: BYU
+    new_entry: false
+    points: 179
+    first_place_votes: 0
 ---
 These rankings are the **Associated Press men's college basketball poll** for the 2026–27 preseason. My independent Top 25 will begin in December, after I've had time to watch teams play.
 
