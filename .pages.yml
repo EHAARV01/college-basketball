@@ -19,18 +19,18 @@ content:
     label: Featured story button
     type: string
   - name: hero_image
-    label: Fallback homepage photo
+    label: Permanent homepage photo
     type: image
-    description: Used when the featured article has no cover image. Its caption is displayed so it is
-      not mistaken for a photo of that game.
+    description: Independent of article covers. This photo stays on the homepage until you replace it
+      here.
   - name: hero_image_alt
-    label: Fallback photo photo description
+    label: Homepage photo description
     type: string
   - name: hero_image_caption
-    label: Fallback photo photo caption
+    label: Homepage photo caption
     type: string
   - name: hero_image_credit
-    label: Fallback photo photo credit
+    label: Homepage photo credit
     type: string
   - name: latest_heading
     label: Latest heading
@@ -205,8 +205,8 @@ content:
     options:
       format: markdown
       switcher: false
-    description: Write the introduction here. For game breakdowns with score banners, use Game score banners
-      below; each game has its own analysis field.
+    description: Write your article here. For game recaps, use this for the introduction and add each
+      game below. For rankings, use this for your commentary; add teams under Weekly rankings.
   - name: games
     label: Game score banners
     type: object
@@ -228,12 +228,14 @@ content:
     - name: logo_a
       label: First team logo (optional)
       type: image
+      description: Known team names get a logo automatically. Upload here only to override it or add a
+        new team.
     - name: color_a
       label: First team color
       type: select
       default: Navy
       options:
-        values: &id001
+        values:
         - Navy
         - Blue
         - Light blue
@@ -254,12 +256,23 @@ content:
     - name: logo_b
       label: Second team logo (optional)
       type: image
+      description: Known team names get a logo automatically. Upload here only to override it or add a
+        new team.
     - name: color_b
       label: Second team color
       type: select
       default: Navy
       options:
-        values: *id001
+        values:
+        - Navy
+        - Blue
+        - Light blue
+        - Green
+        - Red
+        - Orange
+        - Gold
+        - Purple
+        - Black
     - name: status
       label: Result label
       type: string
@@ -269,9 +282,71 @@ content:
       label: Game note (optional)
       type: string
       description: 'For example: Las Vegas or Eternal City Tip-Off.'
+    - name: takeaway
+      label: Key takeaway (optional)
+      type: text
+      description: Your one-sentence verdict. Shown in a highlighted box above this game’s analysis.
     - name: analysis
       label: Analysis for this game
       type: rich-text
       options:
         format: markdown
         switcher: false
+  - name: watch_next
+    label: What I’m watching next (optional)
+    type: rich-text
+    options:
+      format: markdown
+      switcher: false
+    description: Appears in a separate box at the end of the article. Leave blank to omit it.
+  - name: ranking_label
+    label: Ranking edition / week (rankings only)
+    type: string
+    description: 'For example: Preseason, Week 8, or Week 14. Create a separate article for each week
+      so older editions stay available.'
+  - name: ranking_source
+    label: Poll source label (optional)
+    type: string
+    description: 'For example: Texas Athletics — full AP poll.'
+  - name: ranking_source_url
+    label: Poll source link (optional)
+    type: string
+  - name: ranking_rows
+    label: Weekly rankings (rankings only)
+    type: object
+    description: 'For Rankings or AP Top 25 articles. Add teams in rank order: the first team is No. 1.
+      Drag to reorder. Leave blank for other articles. Records and previous ranks must be from this edition,
+      not today.'
+    list:
+      max: 25
+      collapsible:
+        collapsed: true
+        summary: '{team}'
+    fields:
+    - name: team
+      label: Team
+      type: string
+      required: true
+      description: Use the usual team name, such as Duke or Michigan State. Known teams get logos automatically.
+    - name: logo
+      label: Team logo override (optional)
+      type: image
+    - name: record
+      label: Record at release (optional)
+      type: string
+      description: 'For example: 18-3. Leave blank if not supplied by the source.'
+    - name: previous_rank
+      label: Rank in previous edition (optional)
+      type: number
+      description: Leave blank for preseason or when unavailable. Movement is calculated from this number.
+    - name: new_entry
+      label: New to this Top 25
+      type: boolean
+      default: false
+      description: Turn on for a newly ranked team. Takes priority over previous rank.
+    - name: points
+      label: AP poll points (AP only)
+      type: number
+    - name: first_place_votes
+      label: AP first-place votes (AP only)
+      type: number
