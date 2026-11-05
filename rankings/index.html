@@ -1,45 +1,36 @@
 ---
 layout: default
-title: Top 25 Rankings Archive
-summary: The AP Top 25 and my independent college basketball rankings, with past editions available to browse.
+title: Top 25 Rankings
+summary: Browse the AP Top 25 and Ethan's independent rankings, week by week.
 ---
-{% assign ranking_editions = site.articles | where: 'published', true | where: 'category', 'Rankings' | sort: 'date' | reverse %}
-<section class="wrap archive rankings-archive">
+{% assign ap_editions = site.articles | where: 'published', true | where: 'category', 'AP Top 25' | sort: 'date' | reverse %}
+{% assign own_editions = site.articles | where: 'published', true | where: 'category', 'Rankings' | sort: 'date' | reverse %}
+<section class="wrap archive rankings-archive" id="rankings-browser">
   <div class="eyebrow" style="color:var(--red)">{{ site.data.publication.season | escape }} season</div>
-  <h1 class="archive-title">Top 25 Rankings</h1>
-  <p class="archive-intro">Follow the AP poll now and my independent rankings beginning in December. Browse past editions of each below.</p>
-  <div class="category-links"><a href="#ap-polls">AP Top 25</a><a href="#my-rankings">My Top 25</a></div>
-  <section class="category-section" id="ap-polls" aria-labelledby="ap-polls-heading">
-    <h2 id="ap-polls-heading">AP Top 25</h2>
-    <p class="archive-intro">Rankings by The Associated Press. Each edition is dated and linked to its source.</p>
-    {% assign ap_editions = site.articles | where: 'published', true | where: 'category', 'AP Top 25' | sort: 'date' | reverse %}
-    {% if ap_editions.size > 0 %}
-      {% assign latest_ap = ap_editions | first %}
-      <div class="ranking-latest"><div class="label">Latest AP poll posted here</div><h3><a href="{{ latest_ap.url | relative_url }}">{{ latest_ap.title | escape }}</a></h3><p class="article-meta">Released <time datetime="{{ latest_ap.date | date: '%Y-%m-%d' }}">{{ latest_ap.date | date: '%B %-d, %Y' }}</time></p><p>{{ latest_ap.summary | escape }}</p><a class="btn" href="{{ latest_ap.url | relative_url }}">View AP Top 25 →</a></div>
-      <h3>AP poll archive</h3>
-      <ol class="ranking-editions">{% for edition in ap_editions %}<li><a href="{{ edition.url | relative_url }}"><span><strong>{{ edition.title | escape }}</strong></span><span class="ranking-date"><time datetime="{{ edition.date | date: '%Y-%m-%d' }}">{{ edition.date | date: '%b %-d, %Y' }}</time>{% if forloop.first %}<span class="ranking-current">Latest posted</span>{% endif %}</span></a></li>{% endfor %}</ol>
-    {% else %}<p class="empty-state">No AP polls have been posted yet.</p>{% endif %}
+  <h1 class="archive-title">The Top 25, week by week.</h1>
+  <p class="archive-intro">Follow the AP poll and my own ballot. Choose an edition to see where everyone stood that week.</p>
+  <nav class="poll-switch" aria-label="Choose rankings"><a href="#ap-polls" data-poll-link="ap">AP Top 25</a><a href="#my-rankings" data-poll-link="mine">My Top 25</a></nav>
+  <section class="poll-panel" id="ap-polls" data-poll="ap" aria-labelledby="ap-polls-heading">
+    <div class="poll-section-head"><div><div class="label">The national poll</div><h2 id="ap-polls-heading">AP Top 25</h2><p>Rankings by The Associated Press. Each posted edition stays in the archive.</p></div>
+    {% if ap_editions.size > 0 %}<div class="poll-filter" hidden><label for="ap-edition">Edition / week</label><select id="ap-edition" data-edition-select>{% for edition in ap_editions %}<option value="{{ edition.url | relative_url }}">{{ edition.ranking_label | default: edition.title | escape }} · {{ edition.date | date: '%b %-d, %Y' }}{% if forloop.first %} · Latest posted{% endif %}</option>{% endfor %}</select></div>{% endif %}</div>
+    {% for edition in ap_editions %}
+      <article class="poll-edition" data-edition="{{ edition.url | relative_url }}" aria-label="{{ edition.title | escape }}">
+        <div class="poll-edition-head"><div><span class="label">{% if forloop.first %}Latest AP poll posted here{% else %}From the archive{% endif %}</span><h3>{{ edition.ranking_label | default: edition.title | escape }}</h3></div><a href="{{ edition.url | relative_url }}">Open this edition →</a></div>
+        {% include rankings-table.html edition=edition %}
+        {% if edition.ranking_rows.size > 0 %}<details class="poll-commentary"><summary>About this poll</summary><div class="article-body">{{ edition.content | markdownify }}</div></details>{% else %}<p>{{ edition.summary | escape }}</p><a class="btn" href="{{ edition.url | relative_url }}">Read this poll →</a>{% endif %}
+      </article>
+    {% else %}<div class="empty-state">No AP polls have been posted yet.</div>{% endfor %}
   </section>
-  <section class="category-section" id="my-rankings" aria-labelledby="my-rankings-heading">
-  <h2 id="my-rankings-heading">My Top 25</h2>
-  <p class="archive-intro">My own rankings and commentary. Every published week stays available in the archive.</p>
-  {% if ranking_editions.size > 0 %}
-    {% assign latest = ranking_editions | first %}
-    <section class="ranking-latest" aria-labelledby="latest-ranking-heading">
-      <div class="label">Latest rankings</div>
-      <h2 id="latest-ranking-heading"><a href="{{ latest.url | relative_url }}">{{ latest.title | escape }}</a></h2>
-      <p class="article-meta"><time datetime="{{ latest.date | date: '%Y-%m-%d' }}">{{ latest.date | date: '%B %-d, %Y' }}</time></p>
-      <p>{{ latest.summary | escape }}</p>
-      <a class="btn" href="{{ latest.url | relative_url }}">Read the rankings →</a>
-    </section>
-    <h2 class="rankings-history-heading">Browse every week</h2>
-    <ol class="ranking-editions">
-      {% for edition in ranking_editions %}
-      <li><a href="{{ edition.url | relative_url }}"><span><strong>{{ edition.title | escape }}</strong><span class="ranking-summary">{{ edition.summary | escape }}</span></span><span class="ranking-date"><time datetime="{{ edition.date | date: '%Y-%m-%d' }}">{{ edition.date | date: '%b %-d, %Y' }}</time>{% if forloop.first %}<span class="ranking-current">Latest</span>{% endif %}</span></a></li>
-      {% endfor %}
-    </ol>
-  {% else %}
-    <div class="empty-state"><h2>First Top 25 coming in December</h2><p>I'm watching teams play before publishing my first rankings. Once they begin, every week's edition will be available here.</p><a class="rankings-link" href="{{ '/articles/' | relative_url }}">Read my latest stories →</a></div>
-  {% endif %}
+  <section class="poll-panel" id="my-rankings" data-poll="mine" aria-labelledby="my-rankings-heading">
+    <div class="poll-section-head"><div><div class="label">My ballot</div><h2 id="my-rankings-heading">My Top 25</h2><p>My rankings and reasoning. Every published edition stays available here.</p></div>
+    {% if own_editions.size > 0 %}<div class="poll-filter" hidden><label for="my-edition">Edition / week</label><select id="my-edition" data-edition-select>{% for edition in own_editions %}<option value="{{ edition.url | relative_url }}">{{ edition.ranking_label | default: edition.title | escape }} · {{ edition.date | date: '%b %-d, %Y' }}{% if forloop.first %} · Latest{% endif %}</option>{% endfor %}</select></div>{% endif %}</div>
+    {% for edition in own_editions %}
+      <article class="poll-edition" data-edition="{{ edition.url | relative_url }}" aria-label="{{ edition.title | escape }}">
+        <div class="poll-edition-head"><div><span class="label">{% if forloop.first %}My latest rankings{% else %}From the archive{% endif %}</span><h3>{{ edition.ranking_label | default: edition.title | escape }}</h3></div><a href="{{ edition.url | relative_url }}">Open this edition →</a></div>
+        {% include rankings-table.html edition=edition %}
+        <div class="poll-own-commentary article-body">{{ edition.content | markdownify }}</div>
+      </article>
+    {% else %}<div class="rankings-coming"><span class="label">Watching first. Ranking next.</span><h3>My first Top 25 arrives in December.</h3><p>I'm giving teams time to show who they are. Until then, explore the AP poll or read my game reactions.</p><a class="btn" href="{{ '/analysis/' | relative_url }}">Read game analysis →</a></div>{% endfor %}
   </section>
 </section>
+<script src="{{ '/assets/rankings.js' | relative_url }}" defer></script>

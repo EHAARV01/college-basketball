@@ -7,15 +7,19 @@ layout: default
   <div class="article-meta">{% if page.category == 'AP Top 25' %}Poll: The Associated Press · Released {% else %}By {{ page.author | default: site.data.publication.author | escape }} · {% endif %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %-d, %Y' }}</time></div>
   {% if page.summary and page.summary != '' %}<p class="article-deck">{{ page.summary | escape }}</p>{% endif %}
   {% if page.image and page.image != '' %}<figure class="article-image"><img src="{{ page.image | escape }}" alt="{{ page.image_alt | default: '' | escape }}">{% if page.image_caption and page.image_caption != '' %}<figcaption>{{ page.image_caption | escape }}</figcaption>{% endif %}</figure>{% endif %}
+  {% if page.ranking_rows.size > 0 %}{% include rankings-table.html edition=page %}{% endif %}
   <div class="article-body">{{ content }}</div>
+  {% if page.games.size > 1 %}<nav class="game-jump" aria-label="Jump to a game"><span>Jump to a game</span>{% for game in page.games %}<a href="#game-{{ forloop.index }}">{{ game.team_a | escape }} vs {{ game.team_b | escape }} ↓</a>{% endfor %}</nav>{% endif %}
   {% for game in page.games %}
     {% if game.team_a and game.team_b and game.score_a != nil and game.score_b != nil %}
-    <section class="game-breakdown" aria-label="{{ game.team_a | escape }} versus {{ game.team_b | escape }}">
+    <section class="game-breakdown" id="game-{{ forloop.index }}" aria-label="{{ game.team_a | escape }} versus {{ game.team_b | escape }}">
       {% include score-banner.html game=game %}
+      {% if game.takeaway and game.takeaway != '' %}<aside class="game-takeaway"><span class="label">My takeaway</span><p>{{ game.takeaway | escape }}</p></aside>{% endif %}
       {% if game.analysis and game.analysis != '' %}<div class="article-body">{{ game.analysis | markdownify }}</div>{% endif %}
     </section>
     {% endif %}
   {% endfor %}
+  {% if page.watch_next and page.watch_next != '' %}<aside class="watch-next"><h2>What I'm watching next</h2><div class="article-body">{{ page.watch_next | markdownify }}</div></aside>{% endif %}
   {% if page.category == 'Rankings' or page.category == 'AP Top 25' %}
   {% assign ranking_editions = site.articles | where: 'published', true | where: 'category', page.category | sort: 'date' | reverse %}
   <nav class="ranking-edition-nav" aria-label="Rankings archive navigation">

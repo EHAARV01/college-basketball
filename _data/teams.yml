@@ -1,0 +1,113 @@
+florida:
+  logo: /college-basketball/assets/team-logos/florida.svg
+  source: https://floridagators.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/gatorzone.com/images/integration_2025/main_nav_logo.svg
+duke:
+  logo: /college-basketball/assets/team-logos/duke.svg
+  source: https://goduke.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/goduke.com/images/nextgen_2024/logo_main.svg
+illinois:
+  logo: /college-basketball/assets/team-logos/illinois.svg
+  source: https://fightingillini.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/fightingillini.com/images/integration_2025/Main_nav_logo.svg
+uconn:
+  logo: /college-basketball/assets/team-logos/uconn.svg
+  source: https://uconnhuskies.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/uconnhuskies.com/images/sng_2022/main_nav_logo.svg
+arizona:
+  logo: /college-basketball/assets/team-logos/arizona.svg
+  source: https://arizonawildcats.com/
+  asset_source: https://arizonawildcats.com/images/integration_2026/logo_main.svg
+michigan-state:
+  logo: /college-basketball/assets/team-logos/michigan-state.svg
+  source: https://msuspartans.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/msuspartans.com/images/nextgen_2024/main_nav_logo.svg
+  surface: green
+texas:
+  logo: /college-basketball/assets/team-logos/texas.svg
+  source: https://texaslonghorns.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/texassports_com/images/integration_2024/main_nav_logo-orange.svg
+tennessee:
+  logo: /college-basketball/assets/team-logos/tennessee.svg
+  source: https://utsports.com/
+  asset_source: https://utsports.com/images/nextgen_2025/main_logo.svg
+houston:
+  logo: /college-basketball/assets/team-logos/houston.svg
+  source: https://uhcougars.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/uhcougars.com/images/nextgen_2023/logo_main.svg
+louisville:
+  logo: /college-basketball/assets/team-logos/louisville.svg
+  source: https://gocards.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/gocards.com/images/sng_2022/logo_main.svg
+arkansas:
+  logo: /college-basketball/assets/team-logos/arkansas.png
+  source: https://arkansasrazorbacks.com/
+  asset_source: https://arkansasrazorbacks.com/wp-content/uploads/2021/09/arkansas-dark-logo.png
+st-john-s: &id002
+  logo: /college-basketball/assets/team-logos/st-john-s.svg
+  source: https://redstormsports.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/redstormsports.com/images/nextgen_2022/logo_main.svg
+gonzaga:
+  logo: /college-basketball/assets/team-logos/gonzaga.svg
+  source: https://gozags.com/
+  asset_source: https://gozags.com/images/sng_2026/logo_main-26.svg
+michigan:
+  logo: /college-basketball/assets/team-logos/michigan.svg
+  source: https://mgoblue.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/mgoblue.com/images/sng_2026/nav-logo.svg
+kansas:
+  logo: /college-basketball/assets/team-logos/kansas.svg
+  source: https://kuathletics.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/ukansas.sidearmsports.com/images/integration_2024/main_nav_logo.svg
+iowa-state:
+  logo: /college-basketball/assets/team-logos/iowa-state.svg
+  source: https://cyclones.com/
+  asset_source: https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/isuni.sidearmsports.com/images/nextgen_2024/logo_main.svg
+texas-tech:
+  logo: /college-basketball/assets/team-logos/texas-tech.png
+  source: https://texastech.com/
+  asset_source: https://d30vqmatbr0w9y.cloudfront.net/images/logos/Texas_Tech_2026.png
+alabama:
+  logo: /college-basketball/assets/team-logos/alabama.svg
+  source: https://rolltide.com/
+  asset_source: https://rolltide.com/images/sng_2026/nav-logo.svg
+  surface: crimson
+usc:
+  logo: /college-basketball/assets/team-logos/usc.svg
+  source: https://usctrojans.com/
+  asset_source: https://usctrojans.com/images/responsive_2023/logo_main.svg
+kentucky:
+  logo: /college-basketball/assets/team-logos/kentucky.png
+  source: https://ukathletics.com/
+  asset_source: https://d1a8hwz3c6qyrc.cloudfront.net/images/logos/Kentucky.png
+byu:
+  logo: /college-basketball/assets/team-logos/byu.png
+  source: https://byucougars.com/
+  asset_source: https://byucougars.com/_nuxt/logo.CzI9_ceH.png
+  surface: navy
+ucla:
+  logo: /college-basketball/assets/team-logos/ucla.png
+  source: https://uclabruins.com/
+  asset_source: https://uclabruins.com/imgproxy/cLwxfHfUxEhZS-uCkwoV42mcWE15BN2RimwqWzBVs5E/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3VjbGFicnVpbnMtY29tLXByb2QvMjAyNi8wNy8xNy9reklPeDBtTDZvZjJFZnE5NXljS0xCR29JYjNEQll0dGZuS1U3Wk5iLnBuZw.png
+notre-dame:
+  logo: /college-basketball/assets/team-logos/notre-dame.svg
+  source: https://fightingirish.com/
+  asset_source: https://storage.googleapis.com/fightingirish-com/2026/03/04/SMSUlDB05CpiuIPFnEuJml1JIYUJcSzxacrY15JC.svg
+virginia:
+  logo: /college-basketball/assets/team-logos/virginia.png
+  source: https://virginiasports.com/
+  asset_source: https://virginiasports.com/imgproxy/5DhgCEZUkMe6niTNt3D9Qa1MY7F86yJ9jNyxt-A57OM/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3Zpcmdpbmlhc3BvcnRzLWNvbS1wcm9kLzIwMjUvMTAvMDYvV1RsOEVkdzNLV3g5RnpIczVNOHhiOG5BZzhoNnE1ODVMZ3Y0bGI0Wi5wbmc.png
+miami: &id001
+  logo: /college-basketball/assets/team-logos/miami.png
+  source: https://miamihurricanes.com/
+  asset_source: https://miamihurricanes.com/imgproxy/nIh3r-pu8waudBzvgew-sa29zTP46b0R69_bqhFb2ZM/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL21pYW1paHVycmljYW5lcy1jb20tcHJvZC8yMDI2LzA5LzAxL1RvS1E4VkdqMDJkODFIT040bmVkb0lwOGZTRGlYUVNtODlzRHJTbDUucG5n.png
+vanderbilt:
+  logo: /college-basketball/assets/team-logos/vanderbilt.png
+  source: https://vucommodores.com/
+  asset_source: https://vucommodores.com/imgproxy/DGX-CboW85TwSv2cxTld1thqY_UAVghlj6zJSve1KYg/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3Z1Y29tbW9kb3Jlcy1wcm9kLzIwMjYvMDcvMjkvbW1lRk9HNXhSbG1VSk1Idlp4WmhNT09GTlBmY3dVM2gydDZZRmNmMS5wbmc.png
+miami-fl: *id001
+st-johns: *id002
+villanova:
+  logo: /college-basketball/assets/team-logos/villanova.png
+  source: https://www.villanova.edu/university/comm-marketing/guidelines/villanova-visual-identity/university-logos/athletics.html
+  asset_source: https://www.villanova.edu/content/university/comm-marketing/guidelines/villanova-visual-identity/university-logos/athletics/_jcr_content/pagecontent/image.img.jpg/1772043993757.jpg

@@ -1,0 +1,4 @@
+{% assign team_key = include.name | slugify %}
+{% assign team_info = site.data.teams[team_key] %}
+{% assign team_image = include.logo | default: team_info.logo %}
+<span class="team-logo{% if team_image and team_image != '' %} team-logo-image{% unless include.logo and include.logo != '' %}{% if team_info.surface %} team-logo-on-{{ team_info.surface | escape }}{% endif %}{% endunless %}{% else %} team-logo-initial score-color-{{ include.color | default: 'Navy' | slugify }}{% endif %}" aria-hidden="true">{% if team_image and team_image != '' %}<img src="{{ team_image | escape }}" alt="" width="48" height="48" loading="lazy">{% else %}{{ include.name | slice: 0, 1 | upcase | escape }}{% endif %}</span>

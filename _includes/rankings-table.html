@@ -1,0 +1,22 @@
+{% assign poll = include.edition %}
+{% if poll.ranking_rows.size > 0 %}
+{% if poll.category == 'AP Top 25' %}<p class="poll-mobile-hint">Swipe the table to see points and first-place votes →</p>{% endif %}
+<div class="poll-table-wrap" role="region" aria-label="{{ poll.title | escape }} table" tabindex="0">
+  <table class="poll-table">
+    <caption>{{ poll.ranking_label | default: poll.title | escape }} · {{ poll.date | date: '%B %-d, %Y' }}</caption>
+    <thead><tr><th scope="col">Rank</th><th scope="col">Team</th><th scope="col">Record</th><th scope="col"><span class="desktop-label">Movement</span><span class="mobile-label">Move</span></th>{% if poll.category == 'AP Top 25' %}<th scope="col">Points</th><th scope="col">1st votes</th>{% endif %}</tr></thead>
+    <tbody>
+    {% for row in poll.ranking_rows %}
+      <tr{% if forloop.index <= 3 %} class="poll-leader"{% endif %}>
+        <th scope="row" class="poll-rank">{{ forloop.index }}</th>
+        <td><span class="poll-team">{% include team-logo.html name=row.team logo=row.logo %}<strong>{{ row.team | escape }}</strong></span></td>
+        <td class="poll-record">{{ row.record | default: '—' | escape }}</td>
+        <td class="poll-move">{% if row.new_entry %}<span class="move-new">New</span>{% elsif row.previous_rank and row.previous_rank > 0 %}{% assign movement = row.previous_rank | minus: forloop.index %}{% if movement > 0 %}<span class="move-up" aria-label="Up {{ movement }} places">↑ {{ movement }}</span>{% elsif movement < 0 %}<span class="move-down" aria-label="Down {{ movement | abs }} places">↓ {{ movement | abs }}</span>{% else %}<span aria-label="Unchanged">↔</span>{% endif %}{% else %}<span aria-label="No previous rank supplied">—</span>{% endif %}</td>
+        {% if poll.category == 'AP Top 25' %}<td class="poll-points">{{ row.points | default: '—' | escape }}</td><td class="poll-votes">{{ row.first_place_votes | default: '—' | escape }}</td>{% endif %}
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p class="poll-source">{% if poll.category == 'AP Top 25' %}Poll: The Associated Press.{% else %}Rankings: {{ poll.author | default: site.data.publication.author | escape }}.{% endif %} Released {{ poll.date | date: '%B %-d, %Y' }}.{% if poll.ranking_source_url and poll.ranking_source_url != '' %} <a href="{{ poll.ranking_source_url | escape }}" target="_blank" rel="noopener noreferrer">{{ poll.ranking_source | default: 'Poll source' | escape }} ↗</a>{% endif %} <span>— means no record or previous rank was supplied for this edition.</span></p>
+{% endif %}
