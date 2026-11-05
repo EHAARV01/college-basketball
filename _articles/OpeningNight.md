@@ -5,6 +5,7 @@ author: Ethan Aarvig
 category: Game Analysis
 summary: Initial thoughts and reactions to opening day!
 published: true
+image: /college-basketball/assets/uploads/screenshot-2026-11-04-235206.png
 ---
 College basketball is officially back! After Notre Dame and Villanova kicked off the season in Rome on Sunday, the rest of the country joined the action on Monday. High Point and Liberty got things started at midnight as part of the Field of 68's 24-hour college basketball marathon. In total, 182 games were played throughout the day, including two highly anticipated matchups between ranked opponents. Of course, no opening day would be complete without a little chaos. This year's biggest shock came courtesy of Oklahoma, which suffered an embarrassing 68–64 home loss to East Texas A&M, a team picked to finish dead last in the Southland Conference. Porter Moser was already on the hot seat entering the season, and this loss certainly didn't do him any favors. His days in Norman may already be numbered.
 
