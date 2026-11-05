@@ -205,3 +205,73 @@ content:
     options:
       format: markdown
       switcher: false
+    description: Write the introduction here. For game breakdowns with score banners, use Game score banners
+      below; each game has its own analysis field.
+  - name: games
+    label: Game score banners
+    type: object
+    description: Optional. Add one entry per game, in reading order. Each banner appears after the article
+      introduction and before its own analysis.
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{team_a} vs {team_b}'
+    fields:
+    - name: team_a
+      label: First team
+      type: string
+      required: true
+    - name: score_a
+      label: First team score
+      type: number
+      required: true
+    - name: logo_a
+      label: First team logo (optional)
+      type: image
+    - name: color_a
+      label: First team color
+      type: select
+      default: Navy
+      options:
+        values: &id001
+        - Navy
+        - Blue
+        - Light blue
+        - Green
+        - Red
+        - Orange
+        - Gold
+        - Purple
+        - Black
+    - name: team_b
+      label: Second team
+      type: string
+      required: true
+    - name: score_b
+      label: Second team score
+      type: number
+      required: true
+    - name: logo_b
+      label: Second team logo (optional)
+      type: image
+    - name: color_b
+      label: Second team color
+      type: select
+      default: Navy
+      options:
+        values: *id001
+    - name: status
+      label: Result label
+      type: string
+      default: Final
+      description: 'For example: Final, Final / OT, or Final / 2OT.'
+    - name: note
+      label: Game note (optional)
+      type: string
+      description: 'For example: Las Vegas or Eternal City Tip-Off.'
+    - name: analysis
+      label: Analysis for this game
+      type: rich-text
+      options:
+        format: markdown
+        switcher: false
