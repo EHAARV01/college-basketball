@@ -1,0 +1,33 @@
+<section class="scores-shell{% if include.compact %} scores-compact{% endif %}" data-scoreboard="{% if include.compact %}compact{% else %}full{% endif %}" aria-label="Men’s college basketball scores">
+  <div class="wrap">
+    <div class="scores-heading">
+      <div>{% if include.compact %}<h2>Courtside</h2>{% else %}<div class="label">Around the country</div><h1>Scores &amp; Schedule</h1><p>Follow the games. Find the story.</p>{% endif %}</div>
+      {% if include.compact %}<a class="scores-all" href="{{ '/scores/' | relative_url }}">All scores <span aria-hidden="true">→</span></a>{% endif %}
+    </div>
+    {% unless include.compact %}<div class="scores-toolbar">
+      <div class="scores-date-nav">
+        <button type="button" data-day="-1" aria-label="Previous day">←</button>
+        <label class="scores-date-label">Game date<input type="date" data-score-date aria-label="Game date"></label>
+        <button type="button" data-day="1" aria-label="Next day">→</button>
+        <button type="button" data-today>Today</button>
+      </div>
+      {% unless include.compact %}
+      <div class="scores-filter-group"><label>Find a team<input type="search" data-score-search placeholder="e.g. Louisville" autocomplete="off"></label><label>Conference<select data-score-conference><option value="">All conferences</option><option value="2">ACC</option><option value="62">American</option><option value="3">Atlantic 10</option><option value="4">Big East</option><option value="7">Big Ten</option><option value="23">Big 12</option><option value="44">Mountain West</option><option value="8">SEC</option><option value="29">WCC</option><option value="other">Other conferences</option></select></label></div>
+      {% endunless %}
+    </div>{% endunless %}
+    <div class="scores-view-row">
+      <div class="scores-tabs" role="group" aria-label="Filter games"><button type="button" data-score-filter="all" aria-pressed="true">All games</button><button type="button" data-score-filter="ranked" aria-pressed="false">Top 25</button><button type="button" data-score-filter="live" aria-pressed="false">Live</button>{% unless include.compact %}<button type="button" data-score-filter="final" aria-pressed="false">Final</button>{% endunless %}</div>
+      <div class="scores-refresh-controls">{% if include.compact %}<button type="button" data-strip-direction="-1" aria-label="Scroll scores left">←</button><button type="button" data-strip-direction="1" aria-label="Scroll scores right">→</button>{% endif %}<button type="button" data-score-refresh>Refresh</button></div>
+    </div>
+    <p class="scores-message" data-score-message role="status" aria-live="polite">Loading scores…</p>
+    <div class="scores-games" data-score-games aria-label="Games" aria-busy="true"{% if include.compact %} tabindex="0" role="region"{% endif %}></div>
+    <div class="scores-source"><span data-score-updated>Scores are provided by ESPN. Times are Eastern.</span><a data-score-provider href="https://www.espn.com/mens-college-basketball/scoreboard">View on ESPN <span aria-hidden="true">↗</span></a></div>
+    <noscript><p>Enable JavaScript to load scores, or <a href="https://www.espn.com/mens-college-basketball/scoreboard">view ESPN’s scoreboard</a>.</p></noscript>
+    <div hidden data-score-recaps>
+      {% assign score_recaps = site.articles | where: 'published', true | where: 'category', 'Game Analysis' | sort: 'date' | reverse %}
+      {% for article in score_recaps %}{% for game in article.games %}
+      <a href="{{ article.url | relative_url }}#game-{{ forloop.index }}" data-team-a="{{ game.team_a | escape }}" data-team-b="{{ game.team_b | escape }}" data-score-a="{{ game.score_a | escape }}" data-score-b="{{ game.score_b | escape }}" data-game-date="{{ game.game_date | default: '' | escape }}" data-published="{{ article.date | date: '%Y-%m-%d' }}">{{ article.title | escape }}</a>
+      {% endfor %}{% endfor %}
+    </div>
+  </div>
+</section>
