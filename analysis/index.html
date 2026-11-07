@@ -17,7 +17,8 @@ summary: Browse game recaps and analysis by matchup or publication week.
   <p id="recap-count" role="status" aria-live="polite">{{ recaps.size }} published recap{% unless recaps.size == 1 %}s{% endunless %} · Newest first</p>
   <div class="archive-grid" id="recap-grid">
     {% for article in recaps %}
-    <div class="recap-entry" data-date="{{ article.date | date: '%Y-%m-%d' }}" data-search="{{ article.title | append: ' ' | append: article.summary | escape }}">
+    {% capture recap_search %}{{ article.title }} {{ article.summary }}{% for game in article.games %} {{ game.team_a }} {{ game.team_b }}{% endfor %}{% endcapture %}
+    <div class="recap-entry" data-date="{{ article.date | date: '%Y-%m-%d' }}" data-search="{{ recap_search | escape }}">
       {% include article-card.html article=article %}
     </div>
     {% endfor %}
