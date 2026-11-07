@@ -3,7 +3,7 @@ title: Reactions to Opening Night
 date: 2026-11-04
 author: Ethan Aarvig
 category: Game Analysis
-summary: Takeaways on UCLA's impressive win plus thoughts on Florida and Miami
+summary: Takeaways on UCLA's impressive win plus thoughts on Florida and Miami.
 published: true
 image: /college-basketball/assets/uploads/screenshot-2026-11-04-235206.png
 games:
