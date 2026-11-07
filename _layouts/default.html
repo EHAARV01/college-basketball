@@ -14,6 +14,8 @@
   <meta property="og:type" content="{% if page.layout == 'article' %}article{% else %}website{% endif %}">
   {% if page.image and page.image != '' %}<meta property="og:image" content="{{ page.image | prepend: site.url }}">{% endif %}
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/scores.css' | relative_url }}">
+  {% if page.url == '/' or page.scores %}<script src="{{ '/assets/scores.js' | relative_url }}" defer></script>{% endif %}
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -27,13 +29,15 @@
       <span class="edition">{{ publication.edition_label | escape }}<br>{{ publication.season | escape }} edition</span>
     </div>
     <nav class="nav" aria-label="Main navigation"><div class="wrap navin">
-      <a href="{{ '/' | relative_url }}">{{ publication.nav.home | escape }}</a>
+      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>{{ publication.nav.home | escape }}</a>
       <a href="{{ '/articles/' | relative_url }}">{{ publication.nav.latest | escape }}</a>
       <a href="{{ '/analysis/' | relative_url }}">{{ publication.nav.analysis | escape }}</a>
+      <a href="{{ '/scores/' | relative_url }}"{% if page.scores %} aria-current="page"{% endif %}>Scores</a>
       <a href="{{ '/rankings/' | relative_url }}">{{ publication.nav.rankings | escape }}</a>
       <a href="{{ '/' | relative_url }}#about">{{ publication.nav.about | escape }}</a>
     </div></nav>
   </header>
+  {% if page.url == '/' %}{% include scores-board.html compact=true %}{% endif %}
   <main id="main-content">{{ content }}</main>
   <footer class="footer"><div class="wrap foot"><strong>{{ publication.name | escape }}</strong><span>{{ publication.footer_description | escape }} · {{ publication.season | escape }}</span><a href="{{ '/admin/' | relative_url }}">{{ publication.editor_label | escape }}</a><a href="#top">Back to top ↑</a></div></footer>
 </body>
