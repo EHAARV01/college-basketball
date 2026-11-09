@@ -6,7 +6,7 @@ category: AP Top 25
 summary: The Associated Press men's preseason Top 25, released October 19, 2026.
   Florida leads the poll, followed by Duke and Illinois.
 published: true
-image: /college-basketball/assets/uploads/screenshot-2026-11-09-112206-1.png
+image: /college-basketball/assets/uploads/screenshot-2026-11-09-112206-2.png
 ranking_label: Preseason
 ranking_source: Texas Athletics — full AP poll
 ranking_source_url: https://texaslonghorns.com/news/2026/10/19/mens-basketball-mens-basketball-ranked-no-7-in-ap-preseason-poll
