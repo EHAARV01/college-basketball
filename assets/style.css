@@ -31,3 +31,29 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .team-logo-on-crimson{background:#9e1b32;border-radius:50%;padding:5px}.team-logo-on-navy{background:#002e5d;border-radius:50%;padding:5px}.team-logo-on-green{background:#18453b;border-radius:50%;padding:5px}.team-logo-initial{background:var(--team-color,var(--night));color:#fff}.score-color-blue{--team-color:#123eab}.score-color-light-blue{--team-color:#b6def8}.score-color-green{--team-color:#15593c}.score-color-red{--team-color:#a9262e}.score-color-orange{--team-color:#b74e08}.score-color-gold{--team-color:#e3bd6c}.score-color-purple{--team-color:#5a307a}.score-color-black{--team-color:#171717}.team-logo-initial.score-color-light-blue,.team-logo-initial.score-color-gold{color:var(--ink)}
 .poll-mobile-hint{display:none}@media(max-width:650px){.poll-mobile-hint{display:block;font-size:11px;line-height:1.5;color:var(--muted);padding:0 16px;margin:0 0 12px!important}}
+
+/* Matchup rows in the article watch box */
+.watch-next:has(.article-body > ul) {
+  border-top-color: var(--red);
+}
+
+.watch-next .article-body > ul {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.watch-next .article-body > ul > li {
+  border-top: 1px solid var(--line);
+  padding: 12px 0;
+}
+
+.watch-next .article-body > ul > li:last-child {
+  padding-bottom: 0;
+}
+
+.watch-next .article-body > ul > li strong:first-child {
+  display: block;
+  font: 700 14px/1.4 Arial, Helvetica, sans-serif;
+  margin-bottom: 3px;
+}
