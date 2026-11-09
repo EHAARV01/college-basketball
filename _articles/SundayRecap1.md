@@ -7,16 +7,12 @@ summary: Florida, Duke, and Illinois looked the part in Week 1, while UCLA,
   Virginia, and Memphis made me rethink the pecking order. Here’s what stood out
   and what I’m watching next.
 published: true
-watch_next: >-
-  **What I’m Watching Next** 
-
-
-  I came out of Week 1 with some strong opinions, and by Tuesday night I might
-  already be walking a few of them back. I’ll start with the Champions Classic,
-  where Duke takes on Michigan State and Kansas faces Kentucky. Can Michigan
-  State match Duke’s size? And how will Kentucky fans react if Tyran Stokes
-  leads Kansas to a win? The Champions Classic has the marquee matchups, but
-  there’s plenty to watch elsewhere on Tuesday. Illinois heads to Lubbock to
+watch_next: I came out of Week 1 with some strong opinions, and by Tuesday night
+  I might already be walking a few of them back. I’ll start with the Champions
+  Classic, where Duke takes on Michigan State and Kansas faces Kentucky. Can
+  Michigan State match Duke’s size? And how will Kentucky fans react if Tyran
+  Stokes leads Kansas to a win? The Champions Classic has the marquee matchups,
+  but there’s plenty to watch elsewhere on Tuesday. Illinois heads to Lubbock to
   face a Texas Tech team that can score. Can the Illini keep dominating the
   offensive glass on the road? I’ll also be watching Jayden Reid and Memphis at
   No. 24 Vanderbilt. If the Tigers can keep rolling at Memorial Gym, that
