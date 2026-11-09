@@ -7,17 +7,15 @@ summary: Florida, Duke, and Illinois looked the part in Week 1, while UCLA,
   Virginia, and Memphis made me rethink the pecking order. Here’s what stood out
   and what I’m watching next.
 published: true
-watch_next: I came out of Week 1 with some strong opinions, and by Tuesday night
-  I might already be walking a few of them back. I’ll start with the Champions
-  Classic, where Duke takes on Michigan State and Kansas faces Kentucky. Can
-  Michigan State match Duke’s size? And how will Kentucky fans react if Tyran
-  Stokes leads Kansas to a win? The Champions Classic has the marquee matchups,
-  but there’s plenty to watch elsewhere on Tuesday. Illinois heads to Lubbock to
-  face a Texas Tech team that can score. Can the Illini keep dominating the
-  offensive glass on the road? I’ll also be watching Jayden Reid and Memphis at
-  No. 24 Vanderbilt. If the Tigers can keep rolling at Memorial Gym, that
-  November 15 home game against No. 11 Louisville will have a little extra
-  juice.
+image: /college-basketball/assets/uploads/sunday-recap-week-01-cover.svg
+image_alt: Week 1 Sunday Recap over a navy basketball court, with Illinois's 120–45 opening-night score.
+watch_next: |-
+  I came out of Week 1 with some strong opinions, and by Tuesday night I might already be walking a few of them back.
+
+  - **Duke vs. Michigan State** Can Michigan State match Duke’s size?
+  - **Kansas vs. Kentucky** How will Kentucky fans react if Tyran Stokes leads Kansas to a win?
+  - **Illinois at Texas Tech** Can the Illini keep dominating the offensive glass on the road?
+  - **Memphis at Vanderbilt** I’ll be watching Jayden Reid at Memorial Gym. If the Tigers can keep rolling, that November 15 home game against No. 11 Louisville will have a little extra juice.
 ---
 As I watch USC squeeze out a close victory over Wichita State, the first week of college basketball officially comes to a close. This week was a whirlwind, from a 75-point Illini win on opening night to the second-biggest upset in the last 30 years (I’m looking at you, East Texas A&M). It was the same weird chaos we’ve come to love about college basketball year after year. As the great Jon Rothstein says, “It is only November.”
 
@@ -34,6 +32,8 @@ Duke dismantled both of its Week 1 opponents in routs of 34 and 61 points. Acros
 Illinois cruised to a staggering 75-point win in its first game of the season, the largest margin of victory between two Division I teams in six years. Brad Underwood brought back four of his top six scorers from last year’s Final Four squad, including preseason All-American David Mirković, who will miss at least the first month of the season with an injury. The Illini have also somehow, impossibly, gotten better at offensive rebounding, grabbing a ridiculous 51.4% of their missed shots through two games. The Illini get a true road test in Lubbock on Tuesday, where they’ll face No. 19 Texas Tech.
 
 ### **2. UCLA, Virginia, and Memphis Won the Week**
+
+![Week 1 spotlight finals. UCLA 84, Arizona 75. Virginia 91, Arkansas 72. Memphis 89, VCU 88.](/college-basketball/assets/uploads/sunday-recap-week-01-scores.svg)
 
 There’s as much buzz around this UCLA team as there has ever been during the Mick Cronin era. The Bruins got a fantastic win on opening night over No. 5 Arizona and led for almost the entire game. The Bruins have clearly returned to being one of the elite defenses in the sport, and they’re just as dangerous on offense. Trent Perry and Jaylen Petty form as dynamic a backcourt as you’ll find in college basketball, and that’s before you even get to freshman phenom Nikola Kusturica. Kusturica is a 6-foot-9, do-everything wing who is projected to go No. 1 overall in the 2028 NBA Draft. After a few subpar years, Cronin clearly has a special feeling about this UCLA squad, even remarking, “I’ve not had a bad day coaching this team.” Even the most die-hard Bruins fans may be skeptical of that. Many projected UCLA to be a fringe Top 25 team. After beating Arizona handily, though, the Bruins have their eyes on a trip to Detroit for another Final Four appearance.
 
