@@ -8,14 +8,24 @@ summary: Florida, Duke, and Illinois looked the part in Week 1, while UCLA,
   and what I’m watching next.
 published: true
 image: /college-basketball/assets/uploads/sunday-recap-week-01-cover.svg
-image_alt: Week 1 Sunday Recap over a navy basketball court, with Illinois's 120–45 opening-night score.
-watch_next: |-
-  I came out of Week 1 with some strong opinions, and by Tuesday night I might already be walking a few of them back.
+image_alt: Week 1 Sunday Recap over a navy basketball court, with Illinois's
+  120–45 opening-night score.
+watch_next: >+
+  The Champions Classic is the highest profile event of the week, but don't
+  forget about Illinois in Lubbock or Memphis in Nashville either. 
+
 
   - **Duke vs. Michigan State** Can Michigan State match Duke’s size?
-  - **Kansas vs. Kentucky** How will Kentucky fans react if Tyran Stokes leads Kansas to a win?
-  - **Illinois at Texas Tech** Can the Illini keep dominating the offensive glass on the road?
-  - **Memphis at Vanderbilt** I’ll be watching Jayden Reid at Memorial Gym. If the Tigers can keep rolling, that November 15 home game against No. 11 Louisville will have a little extra juice.
+
+  - **Kansas vs. Kentucky** How will Kentucky fans react if Tyran Stokes leads
+  Kansas to a win?
+
+  - **Illinois at Texas Tech** Can the Illini keep dominating the offensive
+  glass on the road?
+
+  - **Memphis at Vanderbilt** Can Jayden Reid will Memphis to a third straight
+  win? If the Tigers can keep rolling, that November 15 home game against No. 11
+  Louisville will have a little extra juice.
 ---
 As I watch USC squeeze out a close victory over Wichita State, the first week of college basketball officially comes to a close. This week was a whirlwind, from a 75-point Illini win on opening night to the second-biggest upset in the last 30 years (I’m looking at you, East Texas A&M). It was the same weird chaos we’ve come to love about college basketball year after year. As the great Jon Rothstein says, “It is only November.”
 
