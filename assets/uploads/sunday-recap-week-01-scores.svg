@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="178" viewBox="0 0 780 178" role="img" aria-labelledby="score-title score-desc">
+  <title id="score-title">Week 1 spotlight scores</title>
+  <desc id="score-desc">UCLA 84, Arizona 75. Virginia 91, Arkansas 72. Memphis 89, VCU 88.</desc>
+  <rect x=".5" y=".5" width="779" height="177" rx="5" fill="#142334" stroke="#142334"/>
+  <path d="M5 0h770a5 5 0 0 1 5 5H0a5 5 0 0 1 5-5z" fill="#a9262e"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="22" y="32" fill="#eee7dc" font-size="15" font-weight="700" letter-spacing="1.8">WEEK 1 SPOTLIGHT</text>
+    <text x="758" y="32" fill="#c9d4de" font-size="14" font-weight="700" letter-spacing="1.6" text-anchor="end">FINAL</text>
+    <path d="M22 46h736M260 59v100M520 59v100" fill="none" stroke="#667687"/>
+    <g fill="#fff9ef" font-size="27" font-weight="700">
+      <text x="22" y="91">UCLA</text>
+      <text x="282" y="91">Virginia</text>
+      <text x="542" y="91">Memphis</text>
+    </g>
+    <g fill="#d8e0e8" font-size="26">
+      <text x="22" y="145">Arizona</text>
+      <text x="282" y="145">Arkansas</text>
+      <text x="542" y="145">VCU</text>
+    </g>
+    <g text-anchor="end" font-size="39" font-weight="800">
+      <g fill="#fff9ef">
+        <text x="238" y="93">84</text>
+        <text x="498" y="93">91</text>
+        <text x="758" y="93">89</text>
+      </g>
+      <g fill="#d8e0e8">
+        <text x="238" y="147">75</text>
+        <text x="498" y="147">72</text>
+        <text x="758" y="147">88</text>
+      </g>
+    </g>
+  </g>
+</svg>
