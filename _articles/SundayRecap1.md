@@ -7,10 +7,8 @@ summary: Florida, Duke, and Illinois looked the part in Week 1, while UCLA,
   Virginia, and Memphis made me rethink the pecking order. Here’s what stood out
   and what I’m watching next.
 published: true
-image: /college-basketball/assets/uploads/sunday-recap-week-01-cover.svg
-image_alt: Week 1 Sunday Recap over a navy basketball court, with Illinois's
-  120–45 opening-night score.
-watch_next: >+
+image: /college-basketball/assets/uploads/bskt005cameronindoorstadiumdiscoverdurham.jpg
+watch_next: >
   The Champions Classic is the highest profile event of the week, but don't
   forget about Illinois in Lubbock or Memphis in Nashville either. 
 
