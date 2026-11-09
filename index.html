@@ -3,9 +3,7 @@ layout: default
 ---
 {% assign home = site.data.homepage %}
 {% assign published_articles = site.articles | where: 'published', true | sort: 'date' | reverse %}
-{% assign featured = nil %}
-{% for article in published_articles %}{% unless article.category == 'AP Top 25' %}{% assign featured = article %}{% break %}{% endunless %}{% endfor %}
-{% unless featured %}{% assign featured = published_articles | first %}{% endunless %}
+{% assign featured = published_articles | first %}
 {% if featured %}
 <section class="wrap lead-story" aria-labelledby="main-title">
   <div class="lead-copy">
@@ -26,12 +24,11 @@ layout: default
   {% else %}<p class="empty-state">{{ home.empty_articles_message | escape }}</p>{% endif %}
   <a class="analysis-browse" href="{{ '/analysis/' | relative_url }}">Find a game recap by matchup or week →</a>
 </section>
-{% assign ap_articles = published_articles | where: 'category', 'AP Top 25' %}{% assign latest_ap = ap_articles | first %}
 {% assign ranking_articles = published_articles | where: 'category', 'Rankings' %}{% assign latest_ranking = ranking_articles | first %}
 <section class="wrap rankings-strip" id="rankings" aria-labelledby="rankings-title">
   <div><div class="label">The rankings desk</div><h2 id="rankings-title">{{ home.rankings_heading | escape }}</h2>
   {% if latest_ranking %}<p><a href="{{ latest_ranking.url | relative_url }}">{{ latest_ranking.title | escape }} →</a></p>{% else %}<p>{{ home.rankings_intro | escape }}</p>{% endif %}
-  {% if latest_ap %}<p class="poll-link"><a href="{{ latest_ap.url | relative_url }}">Latest AP poll posted here: {{ latest_ap.title | escape }} →</a></p>{% endif %}</div>
-  <a class="btn" href="{{ '/rankings/' | relative_url }}">Browse rankings →</a>
+  </div>
+  <a class="btn" href="{{ '/rankings/' | relative_url }}">Explore the Top 25 →</a>
 </section>
 <section class="about" id="about"><div class="wrap aboutgrid"><h2>{{ home.about_heading | escape }}</h2><div class="prose">{{ home.about_body | markdownify }}{% if home.about_note and home.about_note != '' %}<p class="small">{{ home.about_note | escape }}</p>{% endif %}</div></div></section>
