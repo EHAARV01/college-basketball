@@ -19,7 +19,7 @@ watch_next: I came out of Week 1 with some strong opinions, and by Tuesday night
   November 15 home game against No. 11 Louisville will have a little extra
   juice.
 ---
-As I watch USC close out a much-closer-than-expected victory over Wichita State, the first week of college basketball officially comes to a close. This week was a whirlwind, from a 75-point Illini win on opening night to the second-biggest upset in the last 30 years (I’m looking at you, East Texas A&M). It was the same weird chaos we’ve come to love about college basketball year after year. As the great Jon Rothstein says, “It is only November.”
+As I watch USC squeeze out a close victory over Wichita State, the first week of college basketball officially comes to a close. This week was a whirlwind, from a 75-point Illini win on opening night to the second-biggest upset in the last 30 years (I’m looking at you, East Texas A&M). It was the same weird chaos we’ve come to love about college basketball year after year. As the great Jon Rothstein says, “It is only November.”
 
 With that, here are my two headlines for the week.
 
