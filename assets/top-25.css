@@ -1,0 +1,285 @@
+.top25-page {
+  max-width: 1180px;
+  padding-block: clamp(24px, 4vw, 56px) clamp(50px, 8vw, 100px);
+}
+
+.top25-masthead {
+  --court-line: rgb(188 210 233 / 18%);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 24px;
+  padding: clamp(26px, 5vw, 62px);
+  border-top: 4px solid var(--gold);
+  background:
+    linear-gradient(90deg, #111f31 16%, rgb(17 31 49 / 0%) 100%),
+    radial-gradient(circle at 86% 50%, transparent 0 16%, var(--court-line) 16.15% 16.35%, transparent 16.5%),
+    linear-gradient(90deg, transparent 85.8%, var(--court-line) 85.9% 86.1%, transparent 86.2%),
+    repeating-linear-gradient(0deg, rgb(188 210 233 / 6%) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, rgb(188 210 233 / 6%) 0 1px, transparent 1px 24px),
+    #1a3049;
+  color: #fff8eb;
+}
+
+.top25-kicker {
+  margin: 0;
+  font: 800 11px/1.4 Arial, sans-serif;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.top25-masthead .top25-kicker,
+.top25-team-first .top25-kicker {
+  color: #edc483;
+}
+
+.top25-masthead .top25-kicker span {
+  margin-inline: .45em;
+}
+
+.top25-masthead h1 {
+  max-width: 11ch;
+  margin: .16em 0;
+  font: 700 clamp(46px, 8vw, 104px)/.94 Georgia, serif;
+  letter-spacing: -.065em;
+}
+
+.top25-masthead h1 em {
+  color: #edc483;
+  white-space: nowrap;
+}
+
+.top25-masthead-copy > p:last-child {
+  margin: 20px 0 0;
+  color: #d8e2ef;
+  font-size: clamp(14px, 2vw, 17px);
+}
+
+.top25-masthead-links {
+  display: grid;
+  gap: 8px;
+}
+
+.top25-masthead-links a {
+  padding: 9px 12px;
+  border: 1px solid rgb(216 226 239 / 35%);
+  color: #fff8eb;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.top25-masthead-links a:hover,
+.top25-masthead-links a:focus-visible {
+  border-color: #edc483;
+  color: #edc483;
+}
+
+.top25-current,
+.top25-history {
+  margin-top: clamp(32px, 6vw, 64px);
+  scroll-margin-top: 70px;
+}
+
+.top25-edition-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+  background: transparent;
+}
+
+.top25-edition-head h2,
+.top25-history h2 {
+  margin: .12em 0 0;
+  font: 700 clamp(32px, 5vw, 52px)/1.06 Georgia, serif;
+  letter-spacing: -.045em;
+}
+
+.top25-edition-head > p {
+  margin: 0;
+  color: var(--muted);
+  text-align: right;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.top25-board {
+  margin-block: 16px 22px;
+}
+
+.top25-front,
+.top25-field {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.top25-team {
+  display: grid;
+  grid-template-columns: 2ch 46px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 16px);
+  padding: 10px clamp(10px, 2vw, 22px);
+  min-height: 63px;
+  background: #fffefa;
+  border: 1px solid var(--line);
+}
+
+.top25-front > .top25-team:not(.top25-team-first) {
+  background: #f0ece1;
+  border-color: #dfd8c9;
+}
+
+.top25-number {
+  color: var(--red);
+  font: 700 clamp(16px, 2.5vw, 23px)/1 Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.05em;
+}
+
+.top25-mark {
+  display: grid;
+  place-items: center;
+}
+
+.top25-mark .team-logo {
+  width: 42px;
+  height: 42px;
+}
+
+.top25-mark img {
+  width: 38px;
+  height: 38px;
+}
+
+.top25-team-name {
+  display: block;
+  font: 700 clamp(16px, 2.5vw, 24px)/1.12 Georgia, serif;
+  letter-spacing: -.025em;
+}
+
+.top25-team-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 9px;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.top25-team-first {
+  grid-column: 1 / -1;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: clamp(12px, 4vw, 48px);
+  padding: clamp(18px, 3.8vw, 40px);
+  min-height: 166px;
+  color: #fff8eb;
+  border: 0;
+  border-left: 5px solid #edc483;
+  background:
+    radial-gradient(circle at 91% 50%, transparent 0 19%, rgb(255 255 255 / 10%) 19.15% 19.4%, transparent 19.6%),
+    linear-gradient(110deg, #0f233d, #18395e);
+}
+
+.top25-team-first .top25-number {
+  color: #edc483;
+  font-size: clamp(34px, 8vw, 100px);
+}
+
+.top25-team-first .top25-identity {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.top25-team-first .top25-team-name {
+  font-size: clamp(35px, 7vw, 84px);
+  line-height: .98;
+}
+
+.top25-team-first .top25-team-details,
+.top25-team-first .top25-team-details span {
+  color: #f0e4d2;
+}
+
+.top25-team-first .top25-mark {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.top25-team-first .team-logo {
+  width: clamp(58px, 14vw, 144px);
+  height: clamp(58px, 14vw, 144px);
+  background: #f8f2e5;
+  border: 1px solid #fff8eb;
+  border-radius: 50%;
+  color: #152944;
+}
+
+.top25-team-first .team-logo img {
+  width: 72%;
+  height: 72%;
+}
+
+.top25-field-head {
+  display: flex;
+  justify-content: space-between;
+  margin: 26px 0 12px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font: 800 11px/1.4 Arial, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.top25-edition-link {
+  display: inline-block;
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.top25-edition-link:hover,
+.top25-edition-link:focus-visible {
+  text-decoration: underline;
+}
+
+.top25-history h2 {
+  margin-bottom: 16px;
+}
+
+.top25-article {
+  max-width: 1000px;
+}
+
+.top25-article .article-deck {
+  max-width: 650px;
+}
+
+@media (max-width: 580px) {
+  .top25-masthead {
+    grid-template-columns: 1fr;
+  }
+
+  .top25-masthead-links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .top25-front,
+  .top25-field {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .top25-team-first {
+    min-height: 108px;
+  }
+}
