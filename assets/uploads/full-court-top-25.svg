@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-label="The Full Court Top 25">
+  <defs>
+    <linearGradient id="night" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
+      <stop stop-color="#102137"/><stop offset="1" stop-color="#1d3551"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#a1b6ce" stroke-opacity=".1"/>
+    </pattern>
+  </defs>
+  <path fill="url(#night)" d="M0 0h1200v640H0z"/>
+  <path fill="url(#grid)" d="M0 0h1200v640H0z"/>
+  <g stroke="#a4bdd6" stroke-opacity=".22" fill="none" stroke-width="3">
+    <path d="M891 104h268v432H891zM891 320h268M948 104v102h154V104M948 536V434h154v102"/>
+    <circle cx="1025" cy="320" r="65"/>
+    <path d="M919 104a106 106 0 0 0 212 0M919 536a106 106 0 0 1 212 0"/>
+  </g>
+  <path d="M107 160h78" stroke="#e8bc75" stroke-width="5"/>
+  <text x="108" y="207" fill="#e8bc75" font-family="Arial,sans-serif" font-weight="bold" font-size="26" letter-spacing="8">THE FULL COURT REPORT</text>
+  <text x="94" y="395" fill="#fff7e9" font-family="Georgia,serif" font-weight="bold" font-size="181" letter-spacing="-9">Top 25.</text>
+  <text x="108" y="474" fill="#c8d5e4" font-family="Arial,sans-serif" font-weight="bold" font-size="23" letter-spacing="5">MEN’S COLLEGE BASKETBALL</text>
+</svg>

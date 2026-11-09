@@ -1,0 +1,25 @@
+{% assign ranking_team = include.team %}
+{% assign ranking_place = include.rank %}
+{% assign record = ranking_team.record | default: '' %}
+{% assign previous_rank = ranking_team.previous_rank | default: 0 %}
+<li class="top25-team{% if ranking_place == 1 %} top25-team-first{% endif %}" value="{{ ranking_place }}">
+  <span class="top25-number" aria-label="Rank {{ ranking_place }}">{% if ranking_place < 10 %}0{% endif %}{{ ranking_place }}</span>
+  <span class="top25-mark">{% include team-logo.html name=ranking_team.team logo=ranking_team.logo %}</span>
+  <div class="top25-identity">
+    {% if ranking_place == 1 %}<span class="top25-kicker">No. 1 in the nation</span>{% endif %}
+    <strong class="top25-team-name">{{ ranking_team.team | escape }}</strong>
+    {% if record != '' or ranking_team.new_entry or previous_rank > 0 %}
+    <span class="top25-team-details">
+      {% if record != '' %}<span>{{ record | escape }}</span>{% endif %}
+      {% if ranking_team.new_entry %}
+        <span class="move-new">New</span>
+      {% elsif previous_rank > 0 %}
+        {% assign movement = previous_rank | minus: ranking_place %}
+        {% if movement > 0 %}<span class="move-up" aria-label="Up {{ movement }}">↑ {{ movement }}</span>
+        {% elsif movement < 0 %}<span class="move-down" aria-label="Down {{ movement | abs }}">↓ {{ movement | abs }}</span>
+        {% else %}<span aria-label="Unchanged">↔</span>{% endif %}
+      {% endif %}
+    </span>
+    {% endif %}
+  </div>
+</li>

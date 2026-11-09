@@ -2,6 +2,6 @@
 <article class="story">
 <a href="{{ article.url | relative_url }}">
   <div class="storyart one">{% if article.image and article.image != '' %}<img src="{{ article.image | escape }}" alt="{{ article.image_alt | default: '' | escape }}" loading="lazy">{% else %}<svg viewBox="0 0 160 95" width="160" height="95" fill="none" stroke="#d6e6f2" stroke-width="2" aria-hidden="true"><path d="M20 75 H140 V18 H20 Z M80 18 V75"/><circle cx="80" cy="47" r="21"/><path d="M20 34 H41 V59 H20 M140 34 H119 V59 H140"/></svg>{% endif %}</div>
-  <div class="storyinner"><div class="label">{{ article.category | escape }}</div><h3>{{ article.title | escape }}</h3><p>{{ article.summary | escape }}</p><span class="storytag">{{ article.date | date: '%b %-d, %Y' }} · {% if article.category == 'AP Top 25' %}Associated Press poll{% else %}{{ article.author | default: site.data.publication.author | escape }}{% endif %}</span></div>
+  <div class="storyinner"><div class="label">{{ article.category | escape }}</div><h3>{{ article.title | escape }}</h3><p>{{ article.summary | escape }}</p><span class="storytag">{{ article.date | date: '%b %-d, %Y' }} · {{ article.author | default: site.data.publication.author | escape }}</span></div>
 </a>
 </article>

@@ -177,7 +177,6 @@ content:
       - Game Analysis
       - Features & Opinion
       - Rankings
-      - AP Top 25
   - name: summary
     label: Short introduction
     type: text
@@ -307,14 +306,14 @@ content:
   - name: ranking_source
     label: Poll source label (optional)
     type: string
-    description: 'For example: Texas Athletics — full AP poll.'
+    description: 'For example: Official team statistics.'
   - name: ranking_source_url
     label: Poll source link (optional)
     type: string
   - name: ranking_rows
     label: Weekly rankings (rankings only)
     type: object
-    description: 'For Rankings or AP Top 25 articles. Add teams in rank order: the first team is No. 1.
+    description: 'For Rankings articles. Add teams in rank order: the first team is No. 1.
       Drag to reorder. Leave blank for other articles. Records and previous ranks must be from this edition,
       not today.'
     list:
@@ -344,9 +343,3 @@ content:
       type: boolean
       default: false
       description: Turn on for a newly ranked team. Takes priority over previous rank.
-    - name: points
-      label: AP poll points (AP only)
-      type: number
-    - name: first_place_votes
-      label: AP first-place votes (AP only)
-      type: number

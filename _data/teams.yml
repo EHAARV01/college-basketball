@@ -111,3 +111,7 @@ villanova:
   logo: /college-basketball/assets/team-logos/villanova.png
   source: https://www.villanova.edu/university/comm-marketing/guidelines/villanova-visual-identity/university-logos/athletics.html
   asset_source: https://www.villanova.edu/content/university/comm-marketing/guidelines/villanova-visual-identity/university-logos/athletics/_jcr_content/pagecontent/image.img.jpg/1772043993757.jpg
+nebraska:
+  logo: https://a.espncdn.com/i/teamlogos/ncaa/500/158.png
+st-louis:
+  logo: https://a.espncdn.com/i/teamlogos/ncaa/500/139.png

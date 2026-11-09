@@ -1,36 +1,55 @@
 ---
 layout: default
 title: Top 25 Rankings
-summary: Browse the AP Top 25 and Ethan's independent rankings, week by week.
+summary: Ethan Aarvig’s independent men’s college basketball Top 25, with a new ballot for each published week.
 ---
-{% assign ap_editions = site.articles | where: 'published', true | where: 'category', 'AP Top 25' | sort: 'date' | reverse %}
-{% assign own_editions = site.articles | where: 'published', true | where: 'category', 'Rankings' | sort: 'date' | reverse %}
-<section class="wrap archive rankings-archive" id="rankings-browser">
-  <div class="eyebrow" style="color:var(--red)">{{ site.data.publication.season | escape }} season</div>
-  <h1 class="archive-title">The Top 25, week by week.</h1>
-  <p class="archive-intro">Follow the AP poll and my own ballot. Choose an edition to see where everyone stood that week.</p>
-  <nav class="poll-switch" aria-label="Choose rankings"><a href="#ap-polls" data-poll-link="ap">AP Top 25</a><a href="#my-rankings" data-poll-link="mine">My Top 25</a></nav>
-  <section class="poll-panel" id="ap-polls" data-poll="ap" aria-labelledby="ap-polls-heading">
-    <div class="poll-section-head"><div><div class="label">The national poll</div><h2 id="ap-polls-heading">AP Top 25</h2><p>Rankings by The Associated Press. Each posted edition stays in the archive.</p></div>
-    {% if ap_editions.size > 0 %}<div class="poll-filter" hidden><label for="ap-edition">Edition / week</label><select id="ap-edition" data-edition-select>{% for edition in ap_editions %}<option value="{{ edition.url | relative_url }}">{{ edition.ranking_label | default: edition.title | escape }} · {{ edition.date | date: '%b %-d, %Y' }}{% if forloop.first %} · Latest posted{% endif %}</option>{% endfor %}</select></div>{% endif %}</div>
-    {% for edition in ap_editions %}
-      <article class="poll-edition" data-edition="{{ edition.url | relative_url }}" aria-label="{{ edition.title | escape }}">
-        <div class="poll-edition-head"><div><span class="label">{% if forloop.first %}Latest AP poll posted here{% else %}From the archive{% endif %}</span><h3>{{ edition.ranking_label | default: edition.title | escape }}</h3></div><a href="{{ edition.url | relative_url }}">Open this edition →</a></div>
-        {% include rankings-table.html edition=edition %}
-        {% if edition.ranking_rows.size > 0 %}<details class="poll-commentary"><summary>About this poll</summary><div class="article-body">{{ edition.content | markdownify }}</div></details>{% else %}<p>{{ edition.summary | escape }}</p><a class="btn" href="{{ edition.url | relative_url }}">Read this poll →</a>{% endif %}
-      </article>
-    {% else %}<div class="empty-state">No AP polls have been posted yet.</div>{% endfor %}
-  </section>
-  <section class="poll-panel" id="my-rankings" data-poll="mine" aria-labelledby="my-rankings-heading">
-    <div class="poll-section-head"><div><div class="label">My ballot</div><h2 id="my-rankings-heading">My Top 25</h2><p>My rankings and reasoning. Every published edition stays available here.</p></div>
-    {% if own_editions.size > 0 %}<div class="poll-filter" hidden><label for="my-edition">Edition / week</label><select id="my-edition" data-edition-select>{% for edition in own_editions %}<option value="{{ edition.url | relative_url }}">{{ edition.ranking_label | default: edition.title | escape }} · {{ edition.date | date: '%b %-d, %Y' }}{% if forloop.first %} · Latest{% endif %}</option>{% endfor %}</select></div>{% endif %}</div>
-    {% for edition in own_editions %}
-      <article class="poll-edition" data-edition="{{ edition.url | relative_url }}" aria-label="{{ edition.title | escape }}">
-        <div class="poll-edition-head"><div><span class="label">{% if forloop.first %}My latest rankings{% else %}From the archive{% endif %}</span><h3>{{ edition.ranking_label | default: edition.title | escape }}</h3></div><a href="{{ edition.url | relative_url }}">Open this edition →</a></div>
-        {% include rankings-table.html edition=edition %}
-        <div class="poll-own-commentary article-body">{{ edition.content | markdownify }}</div>
-      </article>
-    {% else %}<div class="rankings-coming"><span class="label">Watching first. Ranking next.</span><h3>My first Top 25 arrives in December.</h3><p>I'm giving teams time to show who they are. Until then, explore the AP poll or read my game reactions.</p><a class="btn" href="{{ '/analysis/' | relative_url }}">Read game analysis →</a></div>{% endfor %}
+{% assign editions = site.articles | where: 'published', true | where: 'category', 'Rankings' | sort: 'date' | reverse %}
+{% assign latest = editions | first %}
+<section class="wrap top25-page" id="my-rankings" aria-labelledby="top25-title">
+  <header class="top25-masthead">
+    <div class="top25-masthead-copy">
+      <p class="top25-kicker">The Rankings Desk <span aria-hidden="true">/</span> {{ site.data.publication.season | escape }}</p>
+      <h1 id="top25-title">The Full Court <em>Top 25.</em></h1>
+      <p>My weekly ballot for men’s college basketball.</p>
+    </div>
+    <div class="top25-masthead-links">
+      {% if latest %}<a href="#current-ballot">Latest ballot ↓</a>{% endif %}
+      <a href="#ranking-archive">Weekly archive ↓</a>
+    </div>
+  </header>
+
+  {% if latest %}
+  <article class="top25-current" id="current-ballot" aria-labelledby="current-ballot-title">
+    <header class="top25-edition-head">
+      <div>
+        <p class="top25-kicker">Latest ballot</p>
+        <h2 id="current-ballot-title">{{ latest.ranking_label | default: latest.title | escape }}</h2>
+      </div>
+      <p>By {{ latest.author | default: site.data.publication.author | escape }}<br><time datetime="{{ latest.date | date: '%Y-%m-%d' }}">{{ latest.date | date: '%B %-d, %Y' }}</time></p>
+    </header>
+    {% if latest.ranking_rows.size > 0 %}
+      {% include rankings-table.html edition=latest %}
+    {% else %}
+      <p class="archive-intro">{{ latest.summary | escape }}</p>
+    {% endif %}
+    <a class="top25-edition-link" href="{{ latest.url | relative_url }}">Read this edition →</a>
+  </article>
+  {% endif %}
+
+  <section class="top25-history" id="ranking-archive" aria-labelledby="ranking-archive-title">
+    <p class="top25-kicker">Week by week</p>
+    <h2 id="ranking-archive-title">The ballot archive.</h2>
+    {% if latest %}
+    <ol class="ranking-editions" role="list">
+      {% for edition in editions %}
+      <li><a href="{{ edition.url | relative_url }}">
+        <strong>{{ edition.ranking_label | default: edition.title | escape }}</strong>
+        <span class="ranking-date"><time datetime="{{ edition.date | date: '%Y-%m-%d' }}">{{ edition.date | date: '%B %-d, %Y' }}</time>{% if forloop.first %}<span class="ranking-current">Latest</span>{% endif %}</span>
+      </a></li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <p class="empty-state">Published ballots will appear here.</p>
+    {% endif %}
   </section>
 </section>
-<script src="{{ '/assets/rankings.js' | relative_url }}" defer></script>
