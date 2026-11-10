@@ -56,10 +56,10 @@ games:
       uncharacteristically got outrebounded by UCLA–something that was an
       overwhelming strength of theirs a year ago–and their offense is clearly
       still a work in progress. For Arizona fans, a potential band-aid to these
-      problems could be R.J. Godrey, a fifth-year transfer from Clemson who, as
-      of now, has been ruled ineligible by the courts. Godrey would provide
+      problems could be R.J. Godfrey, a fifth-year transfer from Clemson who, as
+      of now, has been ruled ineligible by the courts. Godfrey would provide
       much-needed strength down low, as well as another scoring threat on
-      offense. If Godrey is deemed eligible, Arizona may have the missing piece
+      offense. If Godfrey is deemed eligible, Arizona may have the missing piece
       they need; however, that remains to be seen.
   - team_a: Florida
     score_a: 77
