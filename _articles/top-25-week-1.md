@@ -7,7 +7,7 @@ date: 2026-11-09
 published: true
 ranking_label: Week 1
 image: /college-basketball/assets/uploads/full-court-top-25.svg
-image_alt: "The Full Court Top 25, set over a dark basketball court diagram."
+image_alt: "Everybody Jumps Top 25, set over a dark basketball court diagram."
 ranking_rows:
   - team: Duke
   - team: Florida
