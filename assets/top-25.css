@@ -39,9 +39,9 @@
 }
 
 .top25-masthead h1 {
-  max-width: 11ch;
+  max-width: 15ch;
   margin: .16em 0;
-  font: 700 clamp(46px, 8vw, 104px)/.94 Georgia, serif;
+  font: 700 clamp(40px, 7vw, 96px)/.94 Georgia, serif;
   letter-spacing: -.065em;
 }
 
