@@ -13,6 +13,7 @@
   <meta property="og:site_name" content="{{ publication.name | escape }}">
   <meta property="og:type" content="{% if page.layout == 'article' %}article{% else %}website{% endif %}">
   {% if page.image and page.image != '' %}<meta property="og:image" content="{{ page.image | prepend: site.url }}">{% endif %}
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/everybody-jumps-logo.svg' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/scores.css' | relative_url }}">
   {% if page.url == '/rankings/' or page.category == 'Rankings' %}<link rel="stylesheet" href="{{ '/assets/top-25.css' | relative_url }}">{% endif %}
@@ -24,7 +25,7 @@
   <header id="top">
     <div class="wrap head">
       <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ publication.name | escape }} homepage">
-        <span class="brandmark" aria-hidden="true"><span>{{ publication.logo_letter | upcase | escape }}</span></span>
+        <img class="brand-sticker" src="{{ '/assets/everybody-jumps-logo.svg' | relative_url }}" alt="" width="50" height="75">
         <span><span class="brandtitle">{{ publication.name | escape }}</span><span class="brandsub" style="display:block">{{ publication.tagline | upcase | escape }}</span></span>
       </a>
       <span class="edition">{{ publication.edition_label | escape }}<br>{{ publication.season | escape }} edition</span>
