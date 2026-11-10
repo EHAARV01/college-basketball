@@ -19,11 +19,39 @@ layout: default
 </section>
 {% endif %}
 {% assign latest_ranking = site.rankings | where: 'published', true | sort: 'date' | last %}
-<section class="wrap rankings-strip" id="rankings" aria-labelledby="rankings-title">
-  <div><div class="label">The rankings desk</div><h2 id="rankings-title">{{ home.rankings_heading | escape }}</h2>
-  {% if latest_ranking %}<p><a href="{{ latest_ranking.url | relative_url }}">{{ latest_ranking.title | escape }} →</a></p>{% else %}<p>{{ home.rankings_intro | escape }}</p>{% endif %}
+<section class="wrap home-poll" id="rankings" aria-labelledby="rankings-title">
+  <div class="home-poll-panel{% if latest_ranking %} home-poll-with-board{% endif %}">
+    <div class="home-poll-lead">
+      <p class="home-poll-kicker">The rankings desk</p>
+      <h2 id="rankings-title">{{ home.rankings_heading | escape }}</h2>
+      <p class="home-poll-description">{% if latest_ranking %}My weekly ballot for men’s college basketball.{% else %}{{ home.rankings_intro | escape }}{% endif %}</p>
+      <div class="home-poll-actions">
+        <a class="btn" href="{{ '/rankings/' | relative_url }}">View the full Top 25 <span aria-hidden="true">→</span></a>
+        {% if latest_ranking %}<a class="home-poll-archive" href="{{ '/rankings/' | relative_url }}#ranking-archive">Weekly archive</a>{% endif %}
+      </div>
+    </div>
+    {% if latest_ranking %}
+    <div class="home-poll-board">
+      <div class="home-poll-edition">
+        <a href="{{ latest_ranking.url | relative_url }}">{{ latest_ranking.ranking_label | default: latest_ranking.title | escape }}</a>
+        <time datetime="{{ latest_ranking.date | date: '%Y-%m-%d' }}">{{ latest_ranking.date | date: '%b %-d, %Y' }}</time>
+      </div>
+      {% if latest_ranking.ranking_rows.size > 0 %}
+      <ol class="home-poll-teams" aria-label="Leading teams on the latest ballot" role="list">
+        {% for row in latest_ranking.ranking_rows limit: 5 %}
+        <li class="home-poll-team{% if forloop.first %} home-poll-first{% endif %}">
+          <span class="home-poll-number" aria-label="Rank {{ forloop.index }}">0{{ forloop.index }}</span>
+          <span class="home-poll-mark">{% include team-logo.html name=row.team logo=row.logo %}</span>
+          <strong class="home-poll-name">{{ row.team | escape }}</strong>
+        </li>
+        {% endfor %}
+      </ol>
+      {% else %}
+      <p>{{ latest_ranking.summary | default: home.rankings_intro | escape }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
   </div>
-  <a class="btn" href="{{ '/rankings/' | relative_url }}">Explore the Top 25 →</a>
 </section>
 <section class="wrap section" id="latest">
   <div class="sectionhead"><h2>{{ home.latest_heading | escape }}</h2><a href="{{ '/articles/' | relative_url }}">{{ home.archive_label | escape }} →</a></div>
