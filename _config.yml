@@ -9,12 +9,21 @@ collections:
   articles:
     output: true
     permalink: /articles/:name/
+  rankings:
+    output: true
+    permalink: /rankings/:name/
 defaults:
 - scope:
     path: ''
     type: articles
   values:
     layout: article
+    published: false
+- scope:
+    path: ''
+    type: rankings
+  values:
+    layout: ranking
     published: false
 exclude:
 - README.md
