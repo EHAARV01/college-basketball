@@ -44,7 +44,7 @@ content:
   - name: rankings_intro
     label: Rankings intro
     type: text
-    description: Shown until your first published article in the Rankings category.
+    description: Shown until your first Top 25 ballot is published.
   - name: about_heading
     label: About heading
     type: string
@@ -171,7 +171,6 @@ content:
       - Predictions
       - Game Analysis
       - Features & Opinion
-      - Rankings
   - name: summary
     label: Short introduction
     type: text
@@ -200,7 +199,7 @@ content:
       format: markdown
       switcher: false
     description: Write your article here. For game recaps, use this for the introduction and add each
-      game below. For rankings, use this for your commentary; add teams under Weekly rankings.
+      game below.
   - name: games
     label: Game score banners
     type: object
@@ -293,11 +292,72 @@ content:
       format: markdown
       switcher: false
     description: Appears in a separate box at the end of the article. Leave blank to omit it.
-  - name: ranking_label
-    label: Ranking edition / week (rankings only)
+- name: rankings
+  label: Top 25
+  type: collection
+  path: _rankings
+  format: yaml-frontmatter
+  filename:
+    template: '{primary}.md'
+    field: create
+  subfolders: false
+  view:
+    fields:
+    - title
+    - ranking_label
+    - published
+    - date
+    primary: title
+    sort:
+    - date
+    - title
+    search:
+    - title
+    - ranking_label
+    - summary
+    default:
+      sort: date
+      order: desc
+  fields:
+  - name: title
+    label: Ballot title
     type: string
-    description: 'For example: Preseason, Week 8, or Week 14. Create a separate article for each week
-      so older editions stay available.'
+    required: true
+  - name: ranking_label
+    label: Week label
+    type: string
+    description: 'For example: Preseason, Week 8, or Week 14.'
+  - name: date
+    label: Publication date
+    type: date
+    required: true
+    options:
+      format: yyyy-MM-dd
+  - name: author
+    label: Author
+    type: string
+    default: Ethan Aarvig
+  - name: summary
+    label: Short introduction
+    type: text
+    required: true
+  - name: published
+    label: Published
+    type: boolean
+    default: false
+    description: Turn on and save to publish this ballot in the Top 25 section.
+  - name: image
+    label: Social share image
+    type: image
+  - name: image_alt
+    label: Image description
+    type: string
+  - name: body
+    label: Commentary (optional)
+    type: rich-text
+    options:
+      format: markdown
+      switcher: false
   - name: ranking_source
     label: Poll source label (optional)
     type: string
@@ -306,11 +366,10 @@ content:
     label: Poll source link (optional)
     type: string
   - name: ranking_rows
-    label: Weekly rankings (rankings only)
+    label: Ranked teams
     type: object
-    description: 'For Rankings articles. Add teams in rank order: the first team is No. 1.
-      Drag to reorder. Leave blank for other articles. Records and previous ranks must be from this edition,
-      not today.'
+    description: 'Add teams in rank order. The first team is No. 1. Drag to reorder. Records and previous
+      ranks should reflect this ballot.'
     list:
       max: 25
       collapsible:
