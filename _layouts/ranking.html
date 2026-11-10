@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<section class="article-wrap top25-article" aria-labelledby="ballot-title">
+  <div class="label">Top 25 · {{ page.ranking_label | default: 'Weekly ballot' | escape }}</div>
+  <h1 id="ballot-title">{{ page.title | escape }}</h1>
+  <div class="article-meta">By {{ page.author | default: site.data.publication.author | escape }} · <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %-d, %Y' }}</time></div>
+  {% if page.summary and page.summary != '' %}<p class="article-deck">{{ page.summary | escape }}</p>{% endif %}
+  {% include rankings-table.html edition=page %}
+  {% assign commentary = content | strip %}
+  {% if commentary != '' %}<div class="article-body">{{ content }}</div>{% endif %}
+  {% assign ranking_editions = site.rankings | where: 'published', true | sort: 'date' | reverse %}
+  <nav class="ranking-edition-nav" aria-label="Rankings archive navigation">
+    {% for edition in ranking_editions %}
+      {% if edition.url == page.url %}
+        {% unless forloop.last %}{% assign older_index = forloop.index0 | plus: 1 %}{% assign older = ranking_editions[older_index] %}<a href="{{ older.url | relative_url }}">← Older: {{ older.title | escape }}</a>{% endunless %}
+        <a href="{{ '/rankings/' | relative_url }}#ranking-archive">All ranking weeks</a>
+        {% unless forloop.first %}{% assign newer_index = forloop.index0 | minus: 1 %}{% assign newer = ranking_editions[newer_index] %}<a href="{{ newer.url | relative_url }}">Newer: {{ newer.title | escape }} →</a>{% endunless %}
+      {% endif %}
+    {% endfor %}
+  </nav>
+</section>

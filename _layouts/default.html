@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% assign publication = site.data.publication %}
+  {% assign rankings_section = false %}
+  {% if page.url == '/rankings/' or page.layout == 'ranking' %}{% assign rankings_section = true %}{% endif %}
   <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ publication.name | escape }}</title>
   <meta name="description" content="{{ page.summary | default: publication.description | escape }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
@@ -16,7 +18,7 @@
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/everybody-jumps-logo.svg' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/scores.css' | relative_url }}">
-  {% if page.url == '/rankings/' or page.category == 'Rankings' %}<link rel="stylesheet" href="{{ '/assets/top-25.css' | relative_url }}">{% endif %}
+  {% if rankings_section %}<link rel="stylesheet" href="{{ '/assets/top-25.css' | relative_url }}">{% endif %}
   {% if page.url == '/' or page.scores %}<script src="{{ '/assets/scores.js' | relative_url }}" defer></script>{% endif %}
 </head>
 <body>
@@ -35,7 +37,7 @@
       <a href="{{ '/articles/' | relative_url }}">{{ publication.nav.latest | escape }}</a>
       <a href="{{ '/analysis/' | relative_url }}">{{ publication.nav.analysis | escape }}</a>
       <a href="{{ '/scores/' | relative_url }}"{% if page.scores %} aria-current="page"{% endif %}>Scores</a>
-      <a href="{{ '/rankings/' | relative_url }}"{% if page.url == '/rankings/' %} aria-current="page"{% endif %}>{{ publication.nav.rankings | escape }}</a>
+      <a href="{{ '/rankings/' | relative_url }}"{% if rankings_section %} aria-current="page"{% endif %}>{{ publication.nav.rankings | escape }}</a>
       <a href="{{ '/' | relative_url }}#about">{{ publication.nav.about | escape }}</a>
     </div></nav>
   </header>

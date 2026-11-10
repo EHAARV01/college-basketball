@@ -3,7 +3,7 @@ layout: default
 title: Top 25 Rankings
 summary: Ethan Aarvig’s independent men’s college basketball Top 25, with a new ballot for each published week.
 ---
-{% assign editions = site.articles | where: 'published', true | where: 'category', 'Rankings' | sort: 'date' | reverse %}
+{% assign editions = site.rankings | where: 'published', true | sort: 'date' | reverse %}
 {% assign latest = editions | first %}
 <section class="wrap top25-page" id="my-rankings" aria-labelledby="top25-title">
   <header class="top25-masthead">
@@ -32,7 +32,7 @@ summary: Ethan Aarvig’s independent men’s college basketball Top 25, with a 
     {% else %}
       <p class="archive-intro">{{ latest.summary | escape }}</p>
     {% endif %}
-    <a class="top25-edition-link" href="{{ latest.url | relative_url }}">Read this edition →</a>
+    <a class="top25-edition-link" href="{{ latest.url | relative_url }}">Open this ballot →</a>
   </article>
   {% endif %}
 

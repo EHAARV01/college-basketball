@@ -1,7 +1,6 @@
 ---
 title: "My Top 25 · Week 1"
 summary: "Duke opens at No. 1, followed by Florida, Illinois, Virginia, and St. John’s in my first ballot of the season."
-category: Rankings
 author: Ethan Aarvig
 date: 2026-11-09
 published: true
