@@ -1,13 +1,12 @@
 ---
 layout: default
 ---
-<article class="article-wrap{% if page.ranking_rows.size > 0 %} top25-article{% endif %}">
+<article class="article-wrap">
   <div class="label">{{ page.category | escape }}</div>
   <h1>{{ page.title | escape }}</h1>
   <div class="article-meta">By {{ page.author | default: site.data.publication.author | escape }} · <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %-d, %Y' }}</time></div>
   {% if page.summary and page.summary != '' %}<p class="article-deck">{{ page.summary | escape }}</p>{% endif %}
-  {% if page.image and page.image != '' %}{% unless page.ranking_rows.size > 0 %}<figure class="article-image"><img src="{{ page.image | escape }}" alt="{{ page.image_alt | default: '' | escape }}">{% if page.image_caption and page.image_caption != '' %}<figcaption>{{ page.image_caption | escape }}</figcaption>{% endif %}</figure>{% endunless %}{% endif %}
-  {% if page.ranking_rows.size > 0 %}{% include rankings-table.html edition=page %}{% endif %}
+  {% if page.image and page.image != '' %}<figure class="article-image"><img src="{{ page.image | escape }}" alt="{{ page.image_alt | default: '' | escape }}">{% if page.image_caption and page.image_caption != '' %}<figcaption>{{ page.image_caption | escape }}</figcaption>{% endif %}</figure>{% endif %}
   <div class="article-body">{{ content }}</div>
   {% if page.games.size > 1 %}<nav class="game-jump" aria-label="Jump to a game"><span>Jump to a game</span>{% for game in page.games %}<a href="#game-{{ forloop.index }}">{{ game.team_a | escape }} vs {{ game.team_b | escape }} ↓</a>{% endfor %}</nav>{% endif %}
   {% for game in page.games %}
@@ -20,18 +19,6 @@ layout: default
     {% endif %}
   {% endfor %}
   {% if page.watch_next and page.watch_next != '' %}<aside class="watch-next"><h2>What I'm watching next</h2><div class="article-body">{{ page.watch_next | markdownify }}</div></aside>{% endif %}
-  {% if page.category == 'Rankings' %}
-  {% assign ranking_editions = site.articles | where: 'published', true | where: 'category', page.category | sort: 'date' | reverse %}
-  <nav class="ranking-edition-nav" aria-label="Rankings archive navigation">
-    {% for edition in ranking_editions %}
-      {% if edition.url == page.url %}
-        {% unless forloop.last %}{% assign older_index = forloop.index0 | plus: 1 %}{% assign older = ranking_editions[older_index] %}<a href="{{ older.url | relative_url }}">← Older: {{ older.title | escape }}</a>{% endunless %}
-        <a href="{{ '/rankings/' | relative_url }}#ranking-archive">All ranking weeks</a>
-        {% unless forloop.first %}{% assign newer_index = forloop.index0 | minus: 1 %}{% assign newer = ranking_editions[newer_index] %}<a href="{{ newer.url | relative_url }}">Newer: {{ newer.title | escape }} →</a>{% endunless %}
-      {% endif %}
-    {% endfor %}
-  </nav>
-  {% endif %}
   {% if page.category == 'Game Analysis' %}
   {% assign analysis_articles = site.articles | where: 'published', true | where: 'category', 'Game Analysis' | sort: 'date' | reverse %}
   <nav class="ranking-edition-nav" aria-label="Game analysis navigation">
