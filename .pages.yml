@@ -76,11 +76,6 @@ content:
     label: Publication name
     type: string
     required: true
-  - name: logo_letter
-    label: Logo letter
-    type: string
-    options:
-      maxlength: 1
   - name: tagline
     label: Tagline
     type: string
