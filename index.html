@@ -18,17 +18,17 @@ layout: default
   {% endif %}
 </section>
 {% endif %}
-<section class="wrap section" id="latest">
-  <div class="sectionhead"><h2>{{ home.latest_heading | escape }}</h2><a href="{{ '/articles/' | relative_url }}">{{ home.archive_label | escape }} →</a></div>
-  {% if published_articles.size > 0 %}<div class="archive-grid latest-grid">{% for article in published_articles limit: 6 %}{% include article-card.html article=article %}{% endfor %}</div>
-  {% else %}<p class="empty-state">{{ home.empty_articles_message | escape }}</p>{% endif %}
-  <a class="analysis-browse" href="{{ '/analysis/' | relative_url }}">Find a game recap by matchup or week →</a>
-</section>
-{% assign ranking_articles = published_articles | where: 'category', 'Rankings' %}{% assign latest_ranking = ranking_articles | first %}
+{% assign latest_ranking = site.rankings | where: 'published', true | sort: 'date' | last %}
 <section class="wrap rankings-strip" id="rankings" aria-labelledby="rankings-title">
   <div><div class="label">The rankings desk</div><h2 id="rankings-title">{{ home.rankings_heading | escape }}</h2>
   {% if latest_ranking %}<p><a href="{{ latest_ranking.url | relative_url }}">{{ latest_ranking.title | escape }} →</a></p>{% else %}<p>{{ home.rankings_intro | escape }}</p>{% endif %}
   </div>
   <a class="btn" href="{{ '/rankings/' | relative_url }}">Explore the Top 25 →</a>
+</section>
+<section class="wrap section" id="latest">
+  <div class="sectionhead"><h2>{{ home.latest_heading | escape }}</h2><a href="{{ '/articles/' | relative_url }}">{{ home.archive_label | escape }} →</a></div>
+  {% if published_articles.size > 0 %}<div class="archive-grid latest-grid">{% for article in published_articles limit: 6 %}{% include article-card.html article=article %}{% endfor %}</div>
+  {% else %}<p class="empty-state">{{ home.empty_articles_message | escape }}</p>{% endif %}
+  <a class="analysis-browse" href="{{ '/analysis/' | relative_url }}">Find a game recap by matchup or week →</a>
 </section>
 <section class="about" id="about"><div class="wrap aboutgrid"><h2>{{ home.about_heading | escape }}</h2><div class="prose">{{ home.about_body | markdownify }}{% if home.about_note and home.about_note != '' %}<p class="small">{{ home.about_note | escape }}</p>{% endif %}</div></div></section>
