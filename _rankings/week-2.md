@@ -28,11 +28,11 @@ ranking_rows:
   - team: Alabama
   - team: Arkansas
   - team: Louisville
-  - team: BYU
-  - team: Michigan
-  - team: Nebraska
   - team: USC
+  - team: Michigan
   - team: Memphis
+  - team: Tennessee
+  - team: BYU
 ---
 
 My Week 2 ballot of the 2026–27 season.
